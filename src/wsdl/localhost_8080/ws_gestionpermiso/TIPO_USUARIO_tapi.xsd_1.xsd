@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws_pkg/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws_pkg/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="tu_del" type="tns:tu_del"/>
+
+<xs:element name="tu_delResponse" type="tns:tu_delResponse"/>
+
+<xs:element name="tu_ins" type="tns:tu_ins"/>
+
+<xs:element name="tu_insResponse" type="tns:tu_insResponse"/>
+
+<xs:element name="tu_sel" type="tns:tu_sel"/>
+
+<xs:element name="tu_selId" type="tns:tu_selId"/>
+
+<xs:element name="tu_selIdResponse" type="tns:tu_selIdResponse"/>
+
+<xs:element name="tu_selResponse" type="tns:tu_selResponse"/>
+
+<xs:element name="tu_upd" type="tns:tu_upd"/>
+
+<xs:element name="tu_updResponse" type="tns:tu_updResponse"/>
+
+<xs:complexType name="tu_upd">
+<xs:sequence>
+<xs:element name="p_RUT_ACTUALIZACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_GLOSA_TIPO_USUARIO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_ID_TIPO_USUARIO" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_updResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_selId">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_selIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_sel">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="tu_selResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_del">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_delResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_ins">
+<xs:sequence>
+<xs:element name="p_GLOSA_TIPO_USUARIO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_RUT_CREACION" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="tu_insResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

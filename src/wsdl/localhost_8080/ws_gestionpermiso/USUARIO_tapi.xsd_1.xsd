@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws_pkg/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws_pkg/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="u_del" type="tns:u_del"/>
+
+<xs:element name="u_delResponse" type="tns:u_delResponse"/>
+
+<xs:element name="u_ins" type="tns:u_ins"/>
+
+<xs:element name="u_insResponse" type="tns:u_insResponse"/>
+
+<xs:element name="u_sel" type="tns:u_sel"/>
+
+<xs:element name="u_selId" type="tns:u_selId"/>
+
+<xs:element name="u_selIdResponse" type="tns:u_selIdResponse"/>
+
+<xs:element name="u_selResponse" type="tns:u_selResponse"/>
+
+<xs:element name="u_upd" type="tns:u_upd"/>
+
+<xs:element name="u_updResponse" type="tns:u_updResponse"/>
+
+<xs:complexType name="u_selId">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_selIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_upd">
+<xs:sequence>
+<xs:element name="p_RUT" type="xs:string" minOccurs="0"/>
+<xs:element name="p_FECHA_CONTRATO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_APELLIDOM" type="xs:string" minOccurs="0"/>
+<xs:element name="p_PASSWORD" type="xs:string" minOccurs="0"/>
+<xs:element name="p_RUT_ACTUALIZACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_FECHA_INGRESO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_NOMBRE" type="xs:string" minOccurs="0"/>
+<xs:element name="p_APELLIDOP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_updResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_ins">
+<xs:sequence>
+<xs:element name="p_RUT" type="xs:string" minOccurs="0"/>
+<xs:element name="p_FECHA_CONTRATO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_APELLIDOM" type="xs:string" minOccurs="0"/>
+<xs:element name="p_PASSWORD" type="xs:string" minOccurs="0"/>
+<xs:element name="p_FECHA_INGRESO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_RUT_CREACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_NOMBRE" type="xs:string" minOccurs="0"/>
+<xs:element name="p_APELLIDOP" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_insResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_del">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_delResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_sel">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="u_selResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

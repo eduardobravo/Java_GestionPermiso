@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws_pkg/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws_pkg/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="ui_del" type="tns:ui_del"/>
+
+<xs:element name="ui_delResponse" type="tns:ui_delResponse"/>
+
+<xs:element name="ui_ins" type="tns:ui_ins"/>
+
+<xs:element name="ui_insResponse" type="tns:ui_insResponse"/>
+
+<xs:element name="ui_sel" type="tns:ui_sel"/>
+
+<xs:element name="ui_selId" type="tns:ui_selId"/>
+
+<xs:element name="ui_selIdResponse" type="tns:ui_selIdResponse"/>
+
+<xs:element name="ui_selResponse" type="tns:ui_selResponse"/>
+
+<xs:element name="ui_upd" type="tns:ui_upd"/>
+
+<xs:element name="ui_updResponse" type="tns:ui_updResponse"/>
+
+<xs:complexType name="ui_selId">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_selIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_sel">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ui_selResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_upd">
+<xs:sequence>
+<xs:element name="p_RUT_ACTUALIZACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_ID_UNIDAD_INTERNA" type="xs:string" minOccurs="0"/>
+<xs:element name="p_GLOSA_UNIDAD_INTERNA" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_updResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_del">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_delResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_ins">
+<xs:sequence>
+<xs:element name="p_RUT_CREACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_GLOSA_UNIDAD_INTERNA" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ui_insResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

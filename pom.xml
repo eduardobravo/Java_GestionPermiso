@@ -79,6 +79,24 @@
                         <id>wsimport-generate-TIPO_USO_tapi</id>
                         <phase>generate-sources</phase>
                     </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/ws_gestionpermiso/UNIDAD_INTERNA_tapi.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/WS_GestionPermiso/UNIDAD_INTERNA_tapi?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/UNIDAD_INTERNA_tapi.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-UNIDAD_INTERNA_tapi</id>
+                        <phase>generate-sources</phase>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>

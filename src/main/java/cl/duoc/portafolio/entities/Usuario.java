@@ -19,6 +19,8 @@ public class Usuario {
     private String fecha_ingreso;
     private String fecha_creacion;
     private String nombre;
+    private String apellidop;
+    private String apellidom;
     
     public Usuario(){
         this.rut = "";
@@ -28,9 +30,11 @@ public class Usuario {
         this.fecha_ingreso = "";
         this.fecha_creacion = "";
         this.nombre = "";
+        this.apellidom = "";
+        this.apellidop = "";
     }
 
-    public Usuario(String rut, String password, String fecha_contrato, String rut_creacion, String fecha_ingreso, String fecha_creacion, String nombre) {
+    public Usuario(String rut, String password, String fecha_contrato, String rut_creacion, String fecha_ingreso, String fecha_creacion, String nombre, String apellidop, String apellidom) {
         this.rut = rut;
         this.password = password;
         this.fecha_contrato = fecha_contrato;
@@ -38,6 +42,8 @@ public class Usuario {
         this.fecha_ingreso = fecha_ingreso;
         this.fecha_creacion = fecha_creacion;
         this.nombre = nombre;
+        this.apellidop = apellidop;
+        this.apellidom = apellidom;
     }
 
     public String getRut() {
@@ -94,6 +100,22 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellidop() {
+        return apellidop;
+    }
+
+    public void setApellidop(String apellidop) {
+        this.apellidop = apellidop;
+    }
+
+    public String getApellidom() {
+        return apellidom;
+    }
+
+    public void setApellidom(String apellidom) {
+        this.apellidom = apellidom;
     }
 
     @Override

@@ -16,7 +16,7 @@ import ws_pkg.USUARIOTapi_Service;
 
 /**
  *
- * @author 
+ * @author
  */
 public class IndexController {
 
@@ -32,7 +32,8 @@ public class IndexController {
             service = new USUARIOTapi_Service();
             port = service.getUSUARIOTapiPort();
             String result = port.uSel();
-            listaUsuarios = mapper.readValue(result, new TypeReference<List<Usuario>>(){}); 
+            listaUsuarios = mapper.readValue(result, new TypeReference<List<Usuario>>() {
+            });
         } catch (Exception e) {
             logger.error("Error grave obteniendo Usuarios desde WS.", e);
             throw new RuntimeException(e);
@@ -42,5 +43,51 @@ public class IndexController {
             mapper = null;
         }
         return listaUsuarios;
+    }
+
+    public boolean crearUsuario(Usuario usu, String apellidoP, String apellidoM) {
+        USUARIOTapi_Service service = null;
+        USUARIOTapi port = null;
+        try {
+            boolean resultado = false;
+            service = new ws_pkg.USUARIOTapi_Service();
+            port = service.getUSUARIOTapiPort();
+            int result = port.uIns(usu.getRut(), usu.getFecha_contrato(), apellidoM, usu.getPassword(), usu.getFecha_ingreso(), usu.getRut_creacion(), usu.getNombre(), apellidoP);
+
+            if (result > 0) {
+                resultado = true;
+            }
+
+            return resultado;
+        } catch (Exception e) {
+            logger.error("Error grave creando Usuarios desde WS.", e);
+            throw new RuntimeException(e);
+        } finally {
+            service = null;
+            port = null;
+        }
+    }
+
+    public boolean eliminarUsuario(String rut) {
+        USUARIOTapi_Service service = null;
+        USUARIOTapi port = null;
+        try {
+            boolean resultado = false;
+            service = new ws_pkg.USUARIOTapi_Service();
+            port = service.getUSUARIOTapiPort();
+            int result = port.uDel(rut);
+            
+            if(result <= 0){
+                resultado = false;
+            }
+            
+            return resultado;
+        } catch (Exception e) {
+            logger.error("Error grave eliminando usuario.", e);
+            throw new RuntimeException(e);
+        } finally {
+            service = null;
+            port = null; 
+        }
     }
 }

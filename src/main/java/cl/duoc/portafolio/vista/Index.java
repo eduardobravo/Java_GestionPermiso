@@ -11,17 +11,20 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import org.apache.log4j.Logger;
 
 /**
  *
- * @author 
+ * @author
  */
 public class Index extends javax.swing.JFrame {
+
+    private final static Logger logger = Logger.getLogger(Index.class);
 
     /**
      * Creates new form Index
      */
-    private void cargaTabla(){
+    private void cargaTabla() {
         IndexController indexController = null;
         try {
             indexController = new IndexController();
@@ -34,7 +37,7 @@ public class Index extends javax.swing.JFrame {
             for (int i = 0; i < tableModel.getRowCount(); i++) {
                 tableModel.removeRow(i);
             }
-            */
+             */
             for (Usuario usu : listaUsuarios) {
                 Object[] row = new Object[]{usu.getRut(), usu.getNombre(), usu.getPassword(), usu.getFecha_contrato(), usu.getFecha_ingreso(), usu.getRut_creacion(), usu.getFecha_creacion()};
                 tableModel.addRow(row);
@@ -45,6 +48,7 @@ public class Index extends javax.swing.JFrame {
             indexController = null;
         }
     }
+
     public Index() {
         initComponents();
         cargaTabla();
@@ -63,6 +67,8 @@ public class Index extends javax.swing.JFrame {
         tblUsuarios = new javax.swing.JTable();
         btnListarUsuarios = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +87,7 @@ public class Index extends javax.swing.JFrame {
         tblUsuarios.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(tblUsuarios);
 
-        btnListarUsuarios.setText("Listar Usuarios");
+        btnListarUsuarios.setText("Actualizar");
         btnListarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarUsuariosActionPerformed(evt);
@@ -89,6 +95,20 @@ public class Index extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Usuario");
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Crear");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,7 +119,12 @@ public class Index extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnListarUsuarios)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(36, 36, 36)
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(33, 33, 33)
+                            .addComponent(btnListarUsuarios))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(83, Short.MAX_VALUE))
         );
@@ -111,7 +136,10 @@ public class Index extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btnListarUsuarios)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnListarUsuarios)
+                    .addComponent(btnEliminar)
+                    .addComponent(jButton2))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
 
@@ -121,6 +149,44 @@ public class Index extends javax.swing.JFrame {
     private void btnListarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarUsuariosActionPerformed
         cargaTabla();
     }//GEN-LAST:event_btnListarUsuariosActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            UsuarioInsert usuario = new UsuarioInsert();
+            usuario.setAlwaysOnTop(true);
+            usuario.setVisible(true);
+            this.cargaTabla();
+        } catch (Exception e) {
+            logger.error("Error grave creando usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        IndexController indexCont = null;
+        try {
+            indexCont = new IndexController();
+            if (this.tblUsuarios.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Error: Debe seleccionar un usuario para Eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String rut = String.valueOf(this.tblUsuarios.getValueAt(this.tblUsuarios.getSelectedRow(), 0)).trim();
+                boolean resultado = indexCont.eliminarUsuario(rut);
+                if(!resultado){
+                    JOptionPane.showMessageDialog(this, "me cai :C", "Error", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    this.cargaTabla();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave creando usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            indexCont = null;
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,7 +224,9 @@ public class Index extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnListarUsuarios;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblUsuarios;

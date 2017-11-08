@@ -5,11 +5,18 @@
  */
 package cl.duoc.portafolio.vista;
 
+import cl.duoc.portafolio.controller.IndexController;
+import cl.duoc.portafolio.entities.Usuario;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author Edo
  */
 public class UsuarioInsert extends javax.swing.JFrame {
+    
+    private final static Logger logger = Logger.getLogger(UsuarioInsert.class);
 
     /**
      * Creates new form TipoUsuarioInsert
@@ -42,6 +49,7 @@ public class UsuarioInsert extends javax.swing.JFrame {
         ftfFechaContrato = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setType(java.awt.Window.Type.POPUP);
 
         lblTituloUsuario.setText("Crear Usuario");
 
@@ -56,6 +64,11 @@ public class UsuarioInsert extends javax.swing.JFrame {
         lblFechaContrato.setText("Fecha Contrato");
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -87,13 +100,13 @@ public class UsuarioInsert extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(ftfFechaContrato, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                                 .addComponent(ftfFechaIngreso, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAceptar)
-                                    .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(108, 108, 108)
-                                .addComponent(btnCancelar)))))
-                .addContainerGap(84, Short.MAX_VALUE))
+                            .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(btnAceptar)
+                        .addGap(95, 95, 95)
+                        .addComponent(btnCancelar)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,15 +133,44 @@ public class UsuarioInsert extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFechaContrato)
                     .addComponent(ftfFechaContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAceptar)
                     .addComponent(btnCancelar))
-                .addGap(56, 56, 56))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+        IndexController indexCont = null;
+        try{
+            indexCont = new IndexController();
+            Usuario usu = new Usuario();
+            usu.setRut(this.txtRut.getText().trim());
+            usu.setNombre(this.txtNombre.getText().trim());
+            usu.setPassword(new String(this.pswPassword.getPassword()));
+            usu.setFecha_ingreso(this.ftfFechaIngreso.getText());
+            usu.setFecha_contrato(this.ftfFechaContrato.getText());
+            String apellidoP = "Gonzalez";
+            String apellidoM = "Perez";
+            boolean resultado = indexCont.crearUsuario(usu, apellidoP, apellidoM);
+            
+            if(!resultado){
+                JOptionPane.showMessageDialog(this, "Error grave creando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+            }else{
+                this.setVisible(false);
+            }
+           
+        }catch(Exception e){
+            logger.error("Error grave creando usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            indexCont = null;
+        }
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments

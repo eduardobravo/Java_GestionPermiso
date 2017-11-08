@@ -31,24 +31,6 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8080/WS_GestionPermiso-master-3/USUARIO_tapi.wsdl</wsdlFile>
-                            </wsdlFiles>
-                            <packageName></packageName>
-                            <vmArgs>
-                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
-                            </vmArgs>
-                            <wsdlLocation>http://localhost:8080/WS_GestionPermiso-master-3/USUARIO_tapi?WSDL</wsdlLocation>
-                            <staleFile>${project.build.directory}/jaxws/stale/USUARIO_tapi.stale</staleFile>
-                        </configuration>
-                        <id>wsimport-generate-USUARIO_tapi</id>
-                        <phase>generate-sources</phase>
-                    </execution>
-                    <execution>
-                        <goals>
-                            <goal>wsimport</goal>
-                        </goals>
-                        <configuration>
-                            <wsdlFiles>
                                 <wsdlFile>localhost_8080/ws_gestionpermiso/TIPO_USUARIO_tapi.wsdl</wsdlFile>
                             </wsdlFiles>
                             <packageName></packageName>
@@ -95,6 +77,24 @@
                             <staleFile>${project.build.directory}/jaxws/stale/UNIDAD_INTERNA_tapi.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-UNIDAD_INTERNA_tapi</id>
+                        <phase>generate-sources</phase>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/ws_gestionpermiso/USUARIO_tapi.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/USUARIO_tapi.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-USUARIO_tapi</id>
                         <phase>generate-sources</phase>
                     </execution>
                 </executions>

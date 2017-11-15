@@ -13,7 +13,7 @@ You can copy and paste the single properties, into the pom.xml file and the IDE 
 That way multiple projects can share the same settings (useful for formatting rules for example).
 Any value defined here will override the pom.xml file value but is only applicable to the current project.
 -->
-        <org-netbeans-modules-maven-jaxws._5f_C_5f_USUARIO_5f_tapi>http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_USUARIO_5f_tapi>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_USUARIO_5f_tapi>http://localhost:8080/WS_GestionPermiso/USUARIO_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_USUARIO_5f_tapi>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_USUARIO_5f_tapi_5f_1>http://localhost:8080/WS_GestionPermiso-master-3/USUARIO_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_USUARIO_5f_tapi_5f_1>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_USUARIO_5f_tapi>http://localhost:8080/WS_GestionPermiso/TIPO_USUARIO_tapi?wsdl</org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_USUARIO_5f_tapi>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_USO_5f_tapi>http://localhost:8080/WS_GestionPermiso/TIPO_USO_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_USO_5f_tapi>

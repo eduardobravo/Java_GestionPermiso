@@ -2,6 +2,10 @@
 
 <xs:element name="Exception" type="tns:Exception"/>
 
+<xs:element name="u_active" type="tns:u_active"/>
+
+<xs:element name="u_activeResponse" type="tns:u_activeResponse"/>
+
 <xs:element name="u_del" type="tns:u_del"/>
 
 <xs:element name="u_delResponse" type="tns:u_delResponse"/>
@@ -22,6 +26,24 @@
 
 <xs:element name="u_updResponse" type="tns:u_updResponse"/>
 
+<xs:complexType name="u_selId">
+<xs:sequence>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="u_selIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="u_upd">
 <xs:sequence>
 <xs:element name="p_RUT" type="xs:string" minOccurs="0"/>
@@ -41,21 +63,16 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="Exception">
+<xs:complexType name="u_active">
 <xs:sequence>
-<xs:element name="message" type="xs:string" minOccurs="0"/>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
+<xs:element name="flag_activo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="u_selId">
+<xs:complexType name="u_activeResponse">
 <xs:sequence>
-<xs:element name="id" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="u_selIdResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -80,7 +97,7 @@
 
 <xs:complexType name="u_del">
 <xs:sequence>
-<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="rut" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -91,7 +108,9 @@
 </xs:complexType>
 
 <xs:complexType name="u_sel">
-<xs:sequence/>
+<xs:sequence>
+<xs:element name="flag_activo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="u_selResponse">

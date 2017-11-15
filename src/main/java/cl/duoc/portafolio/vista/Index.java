@@ -28,7 +28,8 @@ public class Index extends javax.swing.JFrame {
         IndexController indexController = null;
         try {
             indexController = new IndexController();
-            List<Usuario> listaUsuarios = indexController.getUsuarios();
+            String inactivos = chbInactivos.isSelected() ? "-1" : "1";
+            List<Usuario> listaUsuarios = indexController.getUsuarios(inactivos);
             String col[] = {"Rut", "Nombre", "Clave", "Fecha Contrato", "Fecha Ingreso", "Rut Creación", "Fecha Creación"};
             DefaultTableModel tableModel = (DefaultTableModel) this.tblUsuarios.getModel();
             tableModel.setRowCount(0);//al setear en cero, elimina de verdad todas las filas del objeto JTable
@@ -69,6 +70,7 @@ public class Index extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        chbInactivos = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +112,13 @@ public class Index extends javax.swing.JFrame {
             }
         });
 
+        chbInactivos.setText("Incluir inactivos");
+        chbInactivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbInactivosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,7 +126,10 @@ public class Index extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(85, 85, 85)
+                        .addComponent(chbInactivos))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,8 +144,13 @@ public class Index extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(chbInactivos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -188,6 +205,11 @@ public class Index extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void chbInactivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbInactivosActionPerformed
+        // TODO add your handling code here:
+        cargaTabla();
+    }//GEN-LAST:event_chbInactivosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -226,6 +248,7 @@ public class Index extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnListarUsuarios;
+    private javax.swing.JCheckBox chbInactivos;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

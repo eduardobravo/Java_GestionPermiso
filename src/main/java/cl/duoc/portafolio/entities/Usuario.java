@@ -21,6 +21,7 @@ public class Usuario {
     private String nombre;
     private String apellidop;
     private String apellidom;
+    private int flag_activo;
     
     public Usuario(){
         this.rut = "";
@@ -32,9 +33,10 @@ public class Usuario {
         this.nombre = "";
         this.apellidom = "";
         this.apellidop = "";
+        this.flag_activo = -1;
     }
 
-    public Usuario(String rut, String password, String fecha_contrato, String rut_creacion, String fecha_ingreso, String fecha_creacion, String nombre, String apellidop, String apellidom) {
+    public Usuario(String rut, String password, String fecha_contrato, String rut_creacion, String fecha_ingreso, String fecha_creacion, String nombre, String apellidop, String apellidom, int flag_activo) {
         this.rut = rut;
         this.password = password;
         this.fecha_contrato = fecha_contrato;
@@ -44,6 +46,7 @@ public class Usuario {
         this.nombre = nombre;
         this.apellidop = apellidop;
         this.apellidom = apellidom;
+        this.flag_activo = flag_activo;
     }
 
     public String getRut() {
@@ -118,10 +121,20 @@ public class Usuario {
         this.apellidom = apellidom;
     }
 
+    public int getFlag_activo() {
+        return flag_activo;
+    }
+
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "rut=" + rut + ", password=" + password + ", fecha_contrato=" + fecha_contrato + ", rut_creacion=" + rut_creacion + ", fecha_ingreso=" + fecha_ingreso + ", fecha_creacion=" + fecha_creacion + ", nombre=" + nombre + '}';
+        return "Usuario{" + "rut=" + rut + ", password=" + password + ", fecha_contrato=" + fecha_contrato + ", rut_creacion=" + rut_creacion + ", fecha_ingreso=" + fecha_ingreso + ", fecha_creacion=" + fecha_creacion + ", nombre=" + nombre + ", apellidop=" + apellidop + ", apellidom=" + apellidom + ", flag_activo=" + flag_activo + '}';
     }
+
+    
     
     
 }

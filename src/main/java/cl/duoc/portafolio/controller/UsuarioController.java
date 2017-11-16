@@ -18,6 +18,7 @@ import ws_pkg.USUARIOTapi_Service;
  * @author Edo
  */
 public class UsuarioController {
+
     private final static Logger logger = Logger.getLogger(IndexController.class);
 
     public List<Usuario> getUsuarios(String Activo) {
@@ -25,7 +26,7 @@ public class UsuarioController {
         USUARIOTapi_Service service = null;
         USUARIOTapi port = null;
         ObjectMapper mapper = null;
-        if(Activo.equals("-1") || Activo.equals("0") || Activo.equals("1")){
+        if (Activo.equals("-1") || Activo.equals("0") || Activo.equals("1")) {
             try {
                 mapper = new ObjectMapper();
                 service = new USUARIOTapi_Service();
@@ -76,21 +77,21 @@ public class UsuarioController {
             service = new ws_pkg.USUARIOTapi_Service();
             port = service.getUSUARIOTapiPort();
             int result = port.uDel(rut);
-            
-            if(result <= 0){
+
+            if (result <= 0) {
                 resultado = false;
             }
-            
+
             return resultado;
         } catch (Exception e) {
             logger.error("Error grave eliminando usuario.", e);
             throw new RuntimeException(e);
         } finally {
             service = null;
-            port = null; 
+            port = null;
         }
     }
-    
+
     public boolean activarUsuario(String rut, int activo) {
         USUARIOTapi_Service service = null;
         USUARIOTapi port = null;
@@ -99,18 +100,41 @@ public class UsuarioController {
             service = new ws_pkg.USUARIOTapi_Service();
             port = service.getUSUARIOTapiPort();
             int result = port.uActive(rut, String.valueOf(activo));
-            
-            if(result <= 0){
-                resultado = false;
+
+            if (result > 0) {
+                resultado = true;
             }
-            
+
             return resultado;
         } catch (Exception e) {
             logger.error("Error grave eliminando usuario.", e);
             throw new RuntimeException(e);
         } finally {
             service = null;
-            port = null; 
+            port = null;
         }
     }
+
+    public Usuario obtenerUsuario(String rut) {
+        USUARIOTapi_Service service = null;
+        USUARIOTapi port = null;
+        ObjectMapper mapper = null;
+        try {
+            mapper = new ObjectMapper();
+            service = new ws_pkg.USUARIOTapi_Service();
+            port = service.getUSUARIOTapiPort();
+            String result = port.uSelId(rut);
+            List<Usuario> usu = mapper.readValue(result, new TypeReference<List<Usuario>>() {
+                });
+            return usu.get(0);
+        } catch (Exception e) {
+            logger.error("Error grave eliminando usuario.", e);
+            throw new RuntimeException(e);
+        } finally {
+            mapper = null;
+            service = null;
+            port = null;
+        }
+    }
+
 }

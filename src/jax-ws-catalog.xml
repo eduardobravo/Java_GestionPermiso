@@ -9,8 +9,8 @@
     <system systemId="http://localhost:8080/WS_GestionPermiso/TIPO_USO_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/TIPO_USO_tapi.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/UNIDAD_INTERNA_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/UNIDAD_INTERNA_tapi.wsdl"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/UNIDAD_INTERNA_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/UNIDAD_INTERNA_tapi.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.wsdl"/>
-    <system systemId="http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/USUARIO_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.wsdl"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/USUARIO_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.wsdl"/>
+    <system systemId="http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.xsd_1.xsd"/>
 </catalog>

@@ -5,17 +5,22 @@
  */
 package cl.duoc.portafolio.vista;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Edo
  */
 public class Principal extends javax.swing.JFrame {
 
+    private UsuarioView usuarioView = null;
+
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /**
@@ -80,9 +85,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void imnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnUsuarioActionPerformed
         // TODO add your handling code here:
-        UsuarioView esrv = new UsuarioView();
-        this.pnlPrincipal.add(esrv);
-        esrv.show();
+        if (this.getUsuarioView() == null) {
+            UsuarioView esrv = new UsuarioView();
+            this.setUsuarioView(esrv);
+            this.pnlPrincipal.add(this.getUsuarioView());
+            this.getUsuarioView().show();
+        } else {
+            if (this.getUsuarioView().isVisible() == false) {
+                UsuarioView esrv = new UsuarioView();
+                this.setUsuarioView(esrv);
+                this.pnlPrincipal.add(this.getUsuarioView());
+                this.getUsuarioView().show();
+            }
+        }
     }//GEN-LAST:event_imnUsuarioActionPerformed
 
     /**
@@ -118,6 +133,14 @@ public class Principal extends javax.swing.JFrame {
                 new Principal().setVisible(true);
             }
         });
+    }
+
+    public UsuarioView getUsuarioView() {
+        return usuarioView;
+    }
+
+    public void setUsuarioView(UsuarioView usuarioView) {
+        this.usuarioView = usuarioView;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

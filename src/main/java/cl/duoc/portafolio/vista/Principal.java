@@ -38,6 +38,20 @@ public class Principal extends javax.swing.JFrame {
         imnUsuario = new javax.swing.JMenuItem();
         mnUnidadInterna = new javax.swing.JMenu();
         imnUnidadInterna = new javax.swing.JMenuItem();
+        mnCalendarioHabil = new javax.swing.JMenu();
+        imnCalendarioHabil = new javax.swing.JMenuItem();
+        mnFeriadoManual = new javax.swing.JMenu();
+        imnFeriadoManual = new javax.swing.JMenuItem();
+        mnMenu = new javax.swing.JMenu();
+        imnMenu = new javax.swing.JMenuItem();
+        mnTipoUso = new javax.swing.JMenu();
+        imnTipoUso = new javax.swing.JMenuItem();
+        mnTipoAprobacion = new javax.swing.JMenu();
+        imnTipoAprobacion = new javax.swing.JMenuItem();
+        mnTipoDiaLibre = new javax.swing.JMenu();
+        imnTipoDiaLibre = new javax.swing.JMenuItem();
+        mnTipoUsuario = new javax.swing.JMenu();
+        imnTipoUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1920, 1080));
@@ -55,7 +69,7 @@ public class Principal extends javax.swing.JFrame {
 
         mnUsuario.setText("Usuario");
 
-        imnUsuario.setText("Mantenedor de usuario");
+        imnUsuario.setText("Administrar");
         imnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imnUsuarioActionPerformed(evt);
@@ -67,7 +81,7 @@ public class Principal extends javax.swing.JFrame {
 
         mnUnidadInterna.setText("Unidad Interna");
 
-        imnUnidadInterna.setText("Agregar");
+        imnUnidadInterna.setText("Administrar");
         imnUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imnUnidadInternaActionPerformed(evt);
@@ -76,6 +90,90 @@ public class Principal extends javax.swing.JFrame {
         mnUnidadInterna.add(imnUnidadInterna);
 
         jMenuBar1.add(mnUnidadInterna);
+
+        mnCalendarioHabil.setText("Calendario");
+
+        imnCalendarioHabil.setText("Administrar");
+        imnCalendarioHabil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnCalendarioHabilActionPerformed(evt);
+            }
+        });
+        mnCalendarioHabil.add(imnCalendarioHabil);
+
+        jMenuBar1.add(mnCalendarioHabil);
+
+        mnFeriadoManual.setText("Feriado");
+
+        imnFeriadoManual.setText("Administrar");
+        imnFeriadoManual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnFeriadoManualActionPerformed(evt);
+            }
+        });
+        mnFeriadoManual.add(imnFeriadoManual);
+
+        jMenuBar1.add(mnFeriadoManual);
+
+        mnMenu.setText("Menú");
+
+        imnMenu.setText("Administrar");
+        imnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnMenuActionPerformed(evt);
+            }
+        });
+        mnMenu.add(imnMenu);
+
+        jMenuBar1.add(mnMenu);
+
+        mnTipoUso.setText("Tipo de Uso");
+
+        imnTipoUso.setText("Administrar");
+        imnTipoUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnTipoUsoActionPerformed(evt);
+            }
+        });
+        mnTipoUso.add(imnTipoUso);
+
+        jMenuBar1.add(mnTipoUso);
+
+        mnTipoAprobacion.setText("Tipo Aprobación");
+
+        imnTipoAprobacion.setText("Administrar");
+        imnTipoAprobacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnTipoAprobacionActionPerformed(evt);
+            }
+        });
+        mnTipoAprobacion.add(imnTipoAprobacion);
+
+        jMenuBar1.add(mnTipoAprobacion);
+
+        mnTipoDiaLibre.setText("Tipo Día Libre");
+
+        imnTipoDiaLibre.setText("Administrar");
+        imnTipoDiaLibre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnTipoDiaLibreActionPerformed(evt);
+            }
+        });
+        mnTipoDiaLibre.add(imnTipoDiaLibre);
+
+        jMenuBar1.add(mnTipoDiaLibre);
+
+        mnTipoUsuario.setText("Tipo Usuario");
+
+        imnTipoUsuario.setText("Administrar");
+        imnTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnTipoUsuarioActionPerformed(evt);
+            }
+        });
+        mnTipoUsuario.add(imnTipoUsuario);
+
+        jMenuBar1.add(mnTipoUsuario);
 
         setJMenuBar(jMenuBar1);
 
@@ -126,6 +224,34 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_imnUnidadInternaActionPerformed
+
+    private void imnCalendarioHabilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnCalendarioHabilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnCalendarioHabilActionPerformed
+
+    private void imnFeriadoManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnFeriadoManualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnFeriadoManualActionPerformed
+
+    private void imnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnMenuActionPerformed
+
+    private void imnTipoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoUsoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnTipoUsoActionPerformed
+
+    private void imnTipoAprobacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoAprobacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnTipoAprobacionActionPerformed
+
+    private void imnTipoDiaLibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoDiaLibreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnTipoDiaLibreActionPerformed
+
+    private void imnTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imnTipoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,9 +307,23 @@ public class Principal extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem imnCalendarioHabil;
+    private javax.swing.JMenuItem imnFeriadoManual;
+    private javax.swing.JMenuItem imnMenu;
+    private javax.swing.JMenuItem imnTipoAprobacion;
+    private javax.swing.JMenuItem imnTipoDiaLibre;
+    private javax.swing.JMenuItem imnTipoUso;
+    private javax.swing.JMenuItem imnTipoUsuario;
     private javax.swing.JMenuItem imnUnidadInterna;
     private javax.swing.JMenuItem imnUsuario;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu mnCalendarioHabil;
+    private javax.swing.JMenu mnFeriadoManual;
+    private javax.swing.JMenu mnMenu;
+    private javax.swing.JMenu mnTipoAprobacion;
+    private javax.swing.JMenu mnTipoDiaLibre;
+    private javax.swing.JMenu mnTipoUso;
+    private javax.swing.JMenu mnTipoUsuario;
     private javax.swing.JMenu mnUnidadInterna;
     private javax.swing.JMenu mnUsuario;
     private javax.swing.JDesktopPane pnlPrincipal;

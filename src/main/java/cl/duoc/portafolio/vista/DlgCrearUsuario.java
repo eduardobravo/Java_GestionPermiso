@@ -15,9 +15,11 @@ import org.apache.log4j.Logger;
  * @author Esteban Perez
  */
 public class DlgCrearUsuario extends javax.swing.JDialog {
+
     private final static Logger logger = Logger.getLogger(UsuarioInsert.class);
     private static UsuarioView usuarioView = null;
     private static Usuario usu = null;
+
     //private static Usuario usuario = null;
     /**
      * Creates new form DirtyDialog
@@ -29,12 +31,12 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         this.setModal(modal);
         initComponents();
         setLocationRelativeTo(this);
-        if(usu != null){
+        if (usu != null) {
             this.cargarDatosUsuario(usuario);
         }
     }
-    
-    private void cargarDatosUsuario(Usuario usu){
+
+    private void cargarDatosUsuario(Usuario usu) {
         this.txtRut.setText(usu.getRut());
         this.txtNombre.setText(usu.getNombre());
         this.txtApellidoP.setText(usu.getApellidop());
@@ -100,11 +102,11 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
 
         jLabel1.setText("Fecha Ingreso");
 
-        ftfFechaIngreso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        ftfFechaIngreso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
         lblFechaContrato.setText("Fecha Contrato");
 
-        ftfFechaContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        ftfFechaContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
         lblClaveRepite.setText("Reingrese Clave");
 
@@ -193,63 +195,109 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
         UsuarioController usrCont = new UsuarioController();
-        try{
-            usu.setRut(this.txtRut.getText().trim());
-            usu.setNombre(this.txtNombre.getText().trim());
-            usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());
-            usu.setFecha_contrato(this.ftfFechaContrato.getText().trim());
-            usu.setApellidop(this.txtApellidoP.getText().trim());
-            usu.setApellidom(this.txtApellidoM.getText().trim());
-            
-            //validación clave
-            if (!new String(this.psfClave.getPassword()).trim().isEmpty()) {
-                if (new String(this.psfClaveRepite.getPassword()).trim().isEmpty()){
-                    JOptionPane.showMessageDialog(this, "Debe ingresar la confirmación de la clave.", "Error", JOptionPane.ERROR_MESSAGE);
-                    this.psfClaveRepite.requestFocus();
-                    return;
-                }else if(!new String(this.psfClaveRepite.getPassword()).trim().equals(new String(this.psfClave.getPassword()).trim())){
-                    JOptionPane.showMessageDialog(this, "Las claves ingresadas no son identicas.", "Error", JOptionPane.ERROR_MESSAGE);
-                    this.psfClave.requestFocus();
-                    this.psfClaveRepite.setText("");
-                    return;
-                }
-                else{
-                    usu.setPassword(new String(this.psfClave.getPassword()).trim());
-                }
-            }
-            
+        try {
+//            usu.setRut(this.txtRut.getText().trim());
+//            usu.setNombre(this.txtNombre.getText().trim());
+//            usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());
+//            usu.setFecha_contrato(this.ftfFechaContrato.getText().trim());
+//            usu.setApellidop(this.txtApellidoP.getText().trim());
+//            usu.setApellidom(this.txtApellidoM.getText().trim());
+//            
+//            //validación clave
+//            if (!new String(this.psfClave.getPassword()).trim().isEmpty()) {
+//                if (new String(this.psfClaveRepite.getPassword()).trim().isEmpty()){
+//                    JOptionPane.showMessageDialog(this, "Debe ingresar la confirmación de la clave.", "Error", JOptionPane.ERROR_MESSAGE);
+//                    this.psfClaveRepite.requestFocus();
+//                    return;
+//                }else if(!new String(this.psfClaveRepite.getPassword()).trim().equals(new String(this.psfClave.getPassword()).trim())){
+//                    JOptionPane.showMessageDialog(this, "Las claves ingresadas no son identicas.", "Error", JOptionPane.ERROR_MESSAGE);
+//                    this.psfClave.requestFocus();
+//                    this.psfClaveRepite.setText("");
+//                    return;
+//                }
+//                else{
+//                    usu.setPassword(new String(this.psfClave.getPassword()).trim());
+//                }
+//            }
+
             //Acción actualizar o crear
-            if(usu != null){
+            if (usu != null) {
                 //Actualizar
-                boolean resultado = usrCont.actualizarUsuario(usu);
-                if(!resultado){
-                    JOptionPane.showMessageDialog(this, "Error actualizando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+
+                usu.setRut(this.txtRut.getText().trim());
+                usu.setNombre(this.txtNombre.getText().trim());
+                usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());
+                usu.setFecha_contrato(this.ftfFechaContrato.getText().trim());
+                usu.setApellidop(this.txtApellidoP.getText().trim());
+                usu.setApellidom(this.txtApellidoM.getText().trim());
+
+                //validación clave
+                if (!new String(this.psfClave.getPassword()).trim().isEmpty()) {
+                    if (new String(this.psfClaveRepite.getPassword()).trim().isEmpty()) {
+                        JOptionPane.showMessageDialog(this, "Debe ingresar la confirmación de la clave.", "Error", JOptionPane.ERROR_MESSAGE);
+                        this.psfClaveRepite.requestFocus();
+                        return;
+                    } else if (!new String(this.psfClaveRepite.getPassword()).trim().equals(new String(this.psfClave.getPassword()).trim())) {
+                        JOptionPane.showMessageDialog(this, "Las claves ingresadas no son identicas.", "Error", JOptionPane.ERROR_MESSAGE);
+                        this.psfClave.requestFocus();
+                        this.psfClaveRepite.setText("");
+                        return;
+                    } else {
+                        usu.setPassword(new String(this.psfClave.getPassword()).trim());
+                    }
                 }
-                else{
+
+                boolean resultado = usrCont.actualizarUsuario(usu);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error actualizando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
                     this.dispose();
                 }
-            }else{
+            } else {
                 //valido que la clave no venga vacía
-                if (new String(this.psfClave.getPassword()).trim().isEmpty()){
+                if (new String(this.psfClave.getPassword()).trim().isEmpty()) {
                     JOptionPane.showMessageDialog(this, "Debe ingresar una clave.", "Error", JOptionPane.ERROR_MESSAGE);
                     this.psfClave.requestFocus();
                     this.psfClaveRepite.setText("");
                     return;
                 }
-                
+
                 //Crear
-                boolean resultado = usrCont.crearUsuario(usu);
-                if(!resultado){
-                    JOptionPane.showMessageDialog(this, "Error creando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                usu = new Usuario();
+                usu.setRut(this.txtRut.getText().trim());
+                usu.setNombre(this.txtNombre.getText().trim());
+                usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());
+                usu.setFecha_contrato(this.ftfFechaContrato.getText().trim());
+                usu.setApellidop(this.txtApellidoP.getText().trim());
+                usu.setApellidom(this.txtApellidoM.getText().trim());
+
+                //validación clave
+                if (!new String(this.psfClave.getPassword()).trim().isEmpty()) {
+                    if (new String(this.psfClaveRepite.getPassword()).trim().isEmpty()) {
+                        JOptionPane.showMessageDialog(this, "Debe ingresar la confirmación de la clave.", "Error", JOptionPane.ERROR_MESSAGE);
+                        this.psfClaveRepite.requestFocus();
+                        return;
+                    } else if (!new String(this.psfClaveRepite.getPassword()).trim().equals(new String(this.psfClave.getPassword()).trim())) {
+                        JOptionPane.showMessageDialog(this, "Las claves ingresadas no son identicas.", "Error", JOptionPane.ERROR_MESSAGE);
+                        this.psfClave.requestFocus();
+                        this.psfClaveRepite.setText("");
+                        return;
+                    } else {
+                        usu.setPassword(new String(this.psfClave.getPassword()).trim());
+                    }
                 }
-                else{
+
+                boolean resultado = usrCont.crearUsuario(usu);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error creando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
                     this.dispose();
                 }
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             logger.error("Error grave en el mantenedor de usuario.", e);
             JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }finally{
+        } finally {
             usrCont = null;
             usu = null;
         }

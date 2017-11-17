@@ -69,6 +69,29 @@ public class UsuarioController {
         }
     }
 
+    public boolean actualizarUsuario(Usuario usu) {
+        USUARIOTapi_Service service = null;
+        USUARIOTapi port = null;
+        try {
+            boolean resultado = false;
+            service = new ws_pkg.USUARIOTapi_Service();
+            port = service.getUSUARIOTapiPort();
+            int result = port.uUpd(usu.getRut(), usu.getFecha_contrato(), usu.getApellidom(), usu.getPassword(), usu.getRut_creacion(), usu.getFecha_ingreso(), usu.getNombre(), usu.getApellidop());
+
+            if (result > 0) {
+                resultado = true;
+            }
+
+            return resultado;
+        } catch (Exception e) {
+            logger.error("Error grave creando Usuarios desde WS.", e);
+            throw new RuntimeException(e);
+        } finally {
+            service = null;
+            port = null;
+        }
+    }
+    
     public boolean eliminarUsuario(String rut) {
         USUARIOTapi_Service service = null;
         USUARIOTapi port = null;

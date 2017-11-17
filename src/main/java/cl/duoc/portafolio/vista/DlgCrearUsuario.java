@@ -6,13 +6,16 @@
 package cl.duoc.portafolio.vista;
 
 import cl.duoc.portafolio.entities.Usuario;
+import cl.duoc.portafolio.controller.UsuarioController;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author Esteban Perez
  */
 public class DlgCrearUsuario extends javax.swing.JDialog {
-
+    private final static Logger logger = Logger.getLogger(UsuarioInsert.class);
     private static UsuarioView usuarioView = null;
     private static Usuario usu = null;
     //private static Usuario usuario = null;
@@ -32,7 +35,12 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     }
     
     private void cargarDatosUsuario(Usuario usu){
-        this.jTextField1.setText(usu.getNombre());
+        this.txtRut.setText(usu.getRut());
+        this.txtNombre.setText(usu.getNombre());
+        this.txtApellidoP.setText(usu.getApellidop());
+        this.txtApellidoM.setText(usu.getApellidom());
+        this.ftfFechaIngreso.setText(usu.getFecha_ingreso());
+        this.ftfFechaContrato.setText(usu.getFecha_contrato());
     }
 
     /**
@@ -47,7 +55,21 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         btnCancelar = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        lblApellidoP = new javax.swing.JLabel();
+        lblApellidoM = new javax.swing.JLabel();
+        txtApellidoP = new javax.swing.JTextField();
+        txtApellidoM = new javax.swing.JTextField();
+        lblClave = new javax.swing.JLabel();
+        psfClave = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        ftfFechaIngreso = new javax.swing.JFormattedTextField();
+        lblFechaContrato = new javax.swing.JLabel();
+        ftfFechaContrato = new javax.swing.JFormattedTextField();
+        lblClaveRepite = new javax.swing.JLabel();
+        psfClaveRepite = new javax.swing.JPasswordField();
+        lblRut = new javax.swing.JLabel();
+        txtRut = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -70,36 +92,99 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
 
         lblNombre.setText("Nombre");
 
+        lblApellidoP.setText("Apellido Paterno");
+
+        lblApellidoM.setText("Apellido Materno");
+
+        lblClave.setText("Clave");
+
+        jLabel1.setText("Fecha Ingreso");
+
+        ftfFechaIngreso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+        lblFechaContrato.setText("Fecha Contrato");
+
+        ftfFechaContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+
+        lblClaveRepite.setText("Reingrese Clave");
+
+        lblRut.setText("Rut");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addComponent(btnAgregar)
+                .addGap(130, 130, 130)
+                .addComponent(btnCancelar)
+                .addGap(121, 121, 121))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(lblNombre)
-                        .addGap(91, 91, 91)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(btnAgregar)
-                        .addGap(158, 158, 158)
-                        .addComponent(btnCancelar)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblRut)
+                    .addComponent(jLabel1)
+                    .addComponent(lblFechaContrato)
+                    .addComponent(lblApellidoP)
+                    .addComponent(lblNombre)
+                    .addComponent(lblApellidoM)
+                    .addComponent(lblClave)
+                    .addComponent(lblClaveRepite))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNombre)
+                    .addComponent(txtApellidoP)
+                    .addComponent(txtApellidoM)
+                    .addComponent(psfClave)
+                    .addComponent(psfClaveRepite)
+                    .addComponent(ftfFechaIngreso)
+                    .addComponent(ftfFechaContrato, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(txtRut))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRut)
+                    .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(103, 103, 103)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancelar)
-                    .addComponent(btnAgregar))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(lblApellidoP)
+                    .addComponent(txtApellidoP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblApellidoM)
+                    .addComponent(txtApellidoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblClave)
+                    .addComponent(psfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblClaveRepite)
+                    .addComponent(psfClaveRepite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ftfFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ftfFechaContrato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblFechaContrato)))
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnCancelar))
+                .addGap(39, 39, 39))
         );
 
         pack();
@@ -107,14 +192,66 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        UsuarioController usrCont = new UsuarioController();
         try{
+            usu.setRut(this.txtRut.getText().trim());
+            usu.setNombre(this.txtNombre.getText().trim());
+            usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());
+            usu.setFecha_contrato(this.ftfFechaContrato.getText().trim());
+            usu.setApellidop(this.txtApellidoP.getText().trim());
+            usu.setApellidom(this.txtApellidoM.getText().trim());
+            
+            //validación clave
+            if (!new String(this.psfClave.getPassword()).trim().isEmpty()) {
+                if (new String(this.psfClaveRepite.getPassword()).trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar la confirmación de la clave.", "Error", JOptionPane.ERROR_MESSAGE);
+                    this.psfClaveRepite.requestFocus();
+                    return;
+                }else if(!new String(this.psfClaveRepite.getPassword()).trim().equals(new String(this.psfClave.getPassword()).trim())){
+                    JOptionPane.showMessageDialog(this, "Las claves ingresadas no son identicas.", "Error", JOptionPane.ERROR_MESSAGE);
+                    this.psfClave.requestFocus();
+                    this.psfClaveRepite.setText("");
+                    return;
+                }
+                else{
+                    usu.setPassword(new String(this.psfClave.getPassword()).trim());
+                }
+            }
+            
+            //Acción actualizar o crear
             if(usu != null){
                 //Actualizar
+                boolean resultado = usrCont.actualizarUsuario(usu);
+                if(!resultado){
+                    JOptionPane.showMessageDialog(this, "Error actualizando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else{
+                    this.dispose();
+                }
             }else{
+                //valido que la clave no venga vacía
+                if (new String(this.psfClave.getPassword()).trim().isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Debe ingresar una clave.", "Error", JOptionPane.ERROR_MESSAGE);
+                    this.psfClave.requestFocus();
+                    this.psfClaveRepite.setText("");
+                    return;
+                }
+                
                 //Crear
+                boolean resultado = usrCont.crearUsuario(usu);
+                if(!resultado){
+                    JOptionPane.showMessageDialog(this, "Error creando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                else{
+                    this.dispose();
+                }
             }
         }catch(Exception e){
-            
+            logger.error("Error grave en el mantenedor de usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }finally{
+            usrCont = null;
+            usu = null;
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -169,7 +306,21 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JFormattedTextField ftfFechaContrato;
+    private javax.swing.JFormattedTextField ftfFechaIngreso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblApellidoM;
+    private javax.swing.JLabel lblApellidoP;
+    private javax.swing.JLabel lblClave;
+    private javax.swing.JLabel lblClaveRepite;
+    private javax.swing.JLabel lblFechaContrato;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblRut;
+    private javax.swing.JPasswordField psfClave;
+    private javax.swing.JPasswordField psfClaveRepite;
+    private javax.swing.JTextField txtApellidoM;
+    private javax.swing.JTextField txtApellidoP;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtRut;
     // End of variables declaration//GEN-END:variables
 }

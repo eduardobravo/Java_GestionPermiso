@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 public class Principal extends javax.swing.JFrame {
 
     private UsuarioView usuarioView = null;
-
+    private UnidadInternaView unidadInternaView = null;
     /**
      * Creates new form Principal
      */
@@ -37,6 +37,7 @@ public class Principal extends javax.swing.JFrame {
         mnUsuario = new javax.swing.JMenu();
         imnUsuario = new javax.swing.JMenuItem();
         mnUnidadInterna = new javax.swing.JMenu();
+        imnUnidadInterna = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(1920, 1080));
@@ -65,6 +66,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(mnUsuario);
 
         mnUnidadInterna.setText("Unidad Interna");
+
+        imnUnidadInterna.setText("Agregar");
+        imnUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imnUnidadInternaActionPerformed(evt);
+            }
+        });
+        mnUnidadInterna.add(imnUnidadInterna);
+
         jMenuBar1.add(mnUnidadInterna);
 
         setJMenuBar(jMenuBar1);
@@ -99,6 +109,23 @@ public class Principal extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_imnUsuarioActionPerformed
+
+    private void imnUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnUnidadInternaActionPerformed
+        // TODO add your handling code here:
+        if (this.getUnidadInternaView() == null) {
+            UnidadInternaView esrv = new UnidadInternaView();
+            this.setUnidadInternaView(esrv);
+            this.pnlPrincipal.add(this.getUnidadInternaView());
+            this.getUnidadInternaView().show();
+        } else {
+            if (this.getUnidadInternaView().isVisible() == false) {
+                UnidadInternaView esrv = new UnidadInternaView();
+                this.setUnidadInternaView(esrv);
+                this.pnlPrincipal.add(this.getUnidadInternaView());
+                this.getUnidadInternaView().show();
+            }
+        }
+    }//GEN-LAST:event_imnUnidadInternaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +170,18 @@ public class Principal extends javax.swing.JFrame {
         this.usuarioView = usuarioView;
     }
 
+    public UnidadInternaView getUnidadInternaView() {
+        return unidadInternaView;
+    }
+
+    public void setUnidadInternaView(UnidadInternaView unidadInternaView) {
+        this.unidadInternaView = unidadInternaView;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem imnUnidadInterna;
     private javax.swing.JMenuItem imnUsuario;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu mnUnidadInterna;

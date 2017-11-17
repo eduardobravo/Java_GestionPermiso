@@ -14,8 +14,17 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Edo
  */
-public class UnidadInternaView extends javax.swing.JFrame {
+public class UnidadInternaView extends javax.swing.JInternalFrame {
 
+    /**
+     * Creates new form UnidadInternaView
+     */
+    public UnidadInternaView() {
+        initComponents();
+        cargaTabla();
+    }
+
+    
     private void cargaTabla(){
         UnidadInternaController unidadInternaController = null;
         try {
@@ -41,14 +50,7 @@ public class UnidadInternaView extends javax.swing.JFrame {
             unidadInternaController = null;
         }
     }
-    /**
-     * Creates new form UnidadInternaView
-     */
-    public UnidadInternaView() {
-        initComponents();
-        cargaTabla();
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

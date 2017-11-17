@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Edo
  */
-public class TipoUsoView extends javax.swing.JFrame {
+public class TipoUsoView extends javax.swing.JInternalFrame {
     private void cargaTabla(){
         TipoUsoController tipoUsoController = null;
         try {

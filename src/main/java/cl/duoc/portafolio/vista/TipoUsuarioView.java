@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Edo
  */
-public class TipoUsuarioView extends javax.swing.JFrame {
+public class TipoUsuarioView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TipoUsuarioView

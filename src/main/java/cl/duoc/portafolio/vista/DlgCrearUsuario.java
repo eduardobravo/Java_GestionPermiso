@@ -16,7 +16,7 @@ import org.apache.log4j.Logger;
  */
 public class DlgCrearUsuario extends javax.swing.JDialog {
 
-    private final static Logger logger = Logger.getLogger(UsuarioInsert.class);
+    private final static Logger logger = Logger.getLogger(DlgCrearUsuario.class);
     private static UsuarioView usuarioView = null;
     private static Usuario usu = null;
 
@@ -196,34 +196,9 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
         UsuarioController usrCont = new UsuarioController();
         try {
-//            usu.setRut(this.txtRut.getText().trim());
-//            usu.setNombre(this.txtNombre.getText().trim());
-//            usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());
-//            usu.setFecha_contrato(this.ftfFechaContrato.getText().trim());
-//            usu.setApellidop(this.txtApellidoP.getText().trim());
-//            usu.setApellidom(this.txtApellidoM.getText().trim());
-//            
-//            //validación clave
-//            if (!new String(this.psfClave.getPassword()).trim().isEmpty()) {
-//                if (new String(this.psfClaveRepite.getPassword()).trim().isEmpty()){
-//                    JOptionPane.showMessageDialog(this, "Debe ingresar la confirmación de la clave.", "Error", JOptionPane.ERROR_MESSAGE);
-//                    this.psfClaveRepite.requestFocus();
-//                    return;
-//                }else if(!new String(this.psfClaveRepite.getPassword()).trim().equals(new String(this.psfClave.getPassword()).trim())){
-//                    JOptionPane.showMessageDialog(this, "Las claves ingresadas no son identicas.", "Error", JOptionPane.ERROR_MESSAGE);
-//                    this.psfClave.requestFocus();
-//                    this.psfClaveRepite.setText("");
-//                    return;
-//                }
-//                else{
-//                    usu.setPassword(new String(this.psfClave.getPassword()).trim());
-//                }
-//            }
-
             //Acción actualizar o crear
             if (usu != null) {
                 //Actualizar
-
                 usu.setRut(this.txtRut.getText().trim());
                 usu.setNombre(this.txtNombre.getText().trim());
                 usu.setFecha_ingreso(this.ftfFechaIngreso.getText().trim());

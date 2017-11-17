@@ -17,7 +17,7 @@ import ws_pkg.UNIDADINTERNATapi_Service;
  * @author Edo
  */
 public class UnidadInternaController {
-    private final static Logger logger = Logger.getLogger(IndexController.class);
+    private final static Logger logger = Logger.getLogger(UnidadInternaController.class);
 
     public List<UnidadInterna> getUnidadInternas() {
         List<UnidadInterna> listaUnidadInternas = null;

@@ -17,7 +17,7 @@ import ws_pkg.TIPOUSUARIOTapi_Service;
  * @author Edo
  */
 public class TipoUsuarioController {
-    private final static Logger logger = Logger.getLogger(IndexController.class);
+    private final static Logger logger = Logger.getLogger(TipoUsuarioController.class);
 
     public List<TipoUsuario> getTipoUsuarios() {
         List<TipoUsuario> listaTipoUsuarios = null;

@@ -19,7 +19,7 @@ import ws_pkg.USUARIOTapi_Service;
  */
 public class UsuarioController {
 
-    private final static Logger logger = Logger.getLogger(IndexController.class);
+    private final static Logger logger = Logger.getLogger(UsuarioController.class);
 
     public List<Usuario> getUsuarios(String Activo) {
         List<Usuario> listaUsuarios = null;

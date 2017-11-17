@@ -20,7 +20,7 @@ import java.awt.Frame;
  */
 public class UsuarioView extends javax.swing.JInternalFrame {
 
-    private final static Logger logger = Logger.getLogger(Index.class);
+    private final static Logger logger = Logger.getLogger(UsuarioView.class);
 
     /**
      * Creates new form Usuario

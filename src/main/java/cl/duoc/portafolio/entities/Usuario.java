@@ -22,6 +22,8 @@ public class Usuario {
     private String apellidop;
     private String apellidom;
     private int flag_activo;
+    private String fecha_actualizacion;
+    private String rut_actualizacion;
     
     public Usuario(){
         this.rut = "";
@@ -34,9 +36,11 @@ public class Usuario {
         this.apellidom = "";
         this.apellidop = "";
         this.flag_activo = -1;
+        this.fecha_actualizacion = "";
+        this.rut_actualizacion = "";
     }
 
-    public Usuario(String rut, String password, String fecha_contrato, String rut_creacion, String fecha_ingreso, String fecha_creacion, String nombre, String apellidop, String apellidom, int flag_activo) {
+    public Usuario(String rut, String password, String fecha_contrato, String rut_creacion, String fecha_ingreso, String fecha_creacion, String nombre, String apellidop, String apellidom, int flag_activo, String fecha_actualizacion, String rut_actualizacion) {
         this.rut = rut;
         this.password = password;
         this.fecha_contrato = fecha_contrato;
@@ -47,6 +51,8 @@ public class Usuario {
         this.apellidop = apellidop;
         this.apellidom = apellidom;
         this.flag_activo = flag_activo;
+        this.fecha_actualizacion = fecha_actualizacion;
+        this.rut_actualizacion = rut_actualizacion;
     }
 
     public String getRut() {
@@ -129,12 +135,25 @@ public class Usuario {
         this.flag_activo = flag_activo;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "rut=" + rut + ", password=" + password + ", fecha_contrato=" + fecha_contrato + ", rut_creacion=" + rut_creacion + ", fecha_ingreso=" + fecha_ingreso + ", fecha_creacion=" + fecha_creacion + ", nombre=" + nombre + ", apellidop=" + apellidop + ", apellidom=" + apellidom + ", flag_activo=" + flag_activo + '}';
+    public String getFecha_actualizacion() {
+        return fecha_actualizacion;
     }
 
-    
-    
+    public void setFecha_actualizacion(String fecha_actualizacion) {
+        this.fecha_actualizacion = fecha_actualizacion;
+    }
+
+    public String getRut_actualizacion() {
+        return rut_actualizacion;
+    }
+
+    public void setRut_actualizacion(String rut_actualizacion) {
+        this.rut_actualizacion = rut_actualizacion;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "rut=" + rut + ", password=" + password + ", fecha_contrato=" + fecha_contrato + ", rut_creacion=" + rut_creacion + ", fecha_ingreso=" + fecha_ingreso + ", fecha_creacion=" + fecha_creacion + ", nombre=" + nombre + ", apellidop=" + apellidop + ", apellidom=" + apellidom + ", flag_activo=" + flag_activo + ", fecha_actualizacion=" + fecha_actualizacion + ", rut_actualizacion=" + rut_actualizacion + '}';
+    }
     
 }

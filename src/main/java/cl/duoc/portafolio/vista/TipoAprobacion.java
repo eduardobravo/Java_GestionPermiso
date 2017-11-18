@@ -27,15 +27,79 @@ public class TipoAprobacion extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTipoAprobacion = new javax.swing.JTable();
+        lblTitulo = new javax.swing.JLabel();
+        lblSubTitulo1 = new javax.swing.JLabel();
+        lblSubTitulo2 = new javax.swing.JLabel();
+        btnEditarTipoAprobacion = new javax.swing.JButton();
+        btnCrearAprobacion = new javax.swing.JButton();
+
+        tblTipoAprobacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblTipoAprobacion);
+
+        lblTitulo.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
+        lblTitulo.setText("Tipor de Aprobacion");
+
+        lblSubTitulo1.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        lblSubTitulo1.setText("1. Para crear un nuevo tipo de aprobacion solo debe pulsar el boton \"Crear\"");
+
+        lblSubTitulo2.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        lblSubTitulo2.setText("2. Para editar un tipo de aprobacion debe seleccionar un tipo de usuario y pulsar el boton \"Editar\"");
+
+        btnEditarTipoAprobacion.setText("Editar");
+
+        btnCrearAprobacion.setText("Crear");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCrearAprobacion)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEditarTipoAprobacion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblTitulo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblSubTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGap(157, 157, 157))
+                                .addComponent(lblSubTitulo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 830, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSubTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSubTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarTipoAprobacion)
+                    .addComponent(btnCrearAprobacion))
+                .addGap(40, 40, 40))
         );
 
         pack();
@@ -43,5 +107,12 @@ public class TipoAprobacion extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrearAprobacion;
+    private javax.swing.JButton btnEditarTipoAprobacion;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSubTitulo1;
+    private javax.swing.JLabel lblSubTitulo2;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTable tblTipoAprobacion;
     // End of variables declaration//GEN-END:variables
 }

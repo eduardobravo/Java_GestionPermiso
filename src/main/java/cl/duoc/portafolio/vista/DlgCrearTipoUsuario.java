@@ -32,7 +32,7 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         lblNombreTipoUsuario = new javax.swing.JLabel();
         txtTipoNombreUsuario = new javax.swing.JTextField();
-        btnCrear = new javax.swing.JButton();
+        btnCrearTipoUsuario = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -45,7 +45,7 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
 
         lblNombreTipoUsuario.setText("Nombre Tipo Usuario :");
 
-        btnCrear.setText("Crear");
+        btnCrearTipoUsuario.setText("Crear");
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +74,7 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
                         .addGap(60, 60, 60))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnCrear)
+                .addComponent(btnCrearTipoUsuario)
                 .addGap(18, 18, 18)
                 .addComponent(btnCancelar)
                 .addGap(28, 28, 28))
@@ -92,7 +92,7 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
                     .addComponent(txtTipoNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCrear)
+                    .addComponent(btnCrearTipoUsuario)
                     .addComponent(btnCancelar))
                 .addGap(15, 15, 15))
         );
@@ -148,7 +148,7 @@ System.exit(0);        // TODO add your handling code here:
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnCrearTipoUsuario;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblNombreTipoUsuario;
     private javax.swing.JLabel lblTitulo;

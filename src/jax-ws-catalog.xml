@@ -13,4 +13,12 @@
     <system systemId="http://localhost:8080/ws_gestionpermiso/USUARIO_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/USUARIO_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.wsdl"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/USUARIO_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/USUARIO_tapi.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/CALENDARIO_HABIL?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/CALENDARIO_HABIL.wsdl"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/CALENDARIO_HABIL?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/CALENDARIO_HABIL.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/FERIADO_MANUAL_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/FERIADO_MANUAL_tapi.wsdl"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/FERIADO_MANUAL_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/FERIADO_MANUAL_tapi.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/MENU_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/MENU_tapi.wsdl"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/MENU_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/MENU_tapi.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/TIPO_APROBACION_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/TIPO_APROBACION_tapi.wsdl"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/TIPO_APROBACION_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/TIPO_APROBACION_tapi.xsd_1.xsd"/>
 </catalog>

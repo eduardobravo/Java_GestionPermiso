@@ -6,7 +6,6 @@
 package cl.duoc.portafolio.controller;
 
 import cl.duoc.portafolio.entities.UnidadInterna;
-import cl.duoc.portafolio.entities.Usuario;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
@@ -114,7 +113,7 @@ public class UnidadInternaController {
         }
     }
     
-        public Usuario obtenerUnidadInterna(String idUnidadI) {
+    public UnidadInterna obtenerUnidadInterna(String idUnidadI) {
         UNIDADINTERNATapi_Service service = null;
         UNIDADINTERNATapi port = null;
         ObjectMapper mapper = null;
@@ -123,7 +122,7 @@ public class UnidadInternaController {
             service = new ws_pkg.UNIDADINTERNATapi_Service();
             port = service.getUNIDADINTERNATapiPort();
             String result = port.uiSelId(idUnidadI);
-            List<Usuario> UnidadI = mapper.readValue(result, new TypeReference<List<UnidadInterna>>() {
+            List<UnidadInterna> UnidadI = mapper.readValue(result, new TypeReference<List<UnidadInterna>>() {
                 });
             return UnidadI.get(0);
         } catch (Exception e) {

@@ -6,15 +6,13 @@
 package cl.duoc.portafolio.controller;
 
 import cl.duoc.portafolio.entities.TipoUsuario;
-import cl.duoc.portafolio.entities.UnidadInterna;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.apache.log4j.Logger;
 import ws_pkg.TIPOUSUARIOTapi;
 import ws_pkg.TIPOUSUARIOTapi_Service;
-import ws_pkg.UNIDADINTERNATapi;
-import ws_pkg.UNIDADINTERNATapi_Service;
+
 /**
  *
  * @author Edo
@@ -44,7 +42,7 @@ public class TipoUsuarioController {
         return listaTipoUsuarios;
     }
     
-    public boolean crearTipoUsuario (TipoUsuario TipoUsuario) {
+    public boolean crearTipoUsuario (TipoUsuario tipoUsuario) {
         TIPOUSUARIOTapi_Service service = null;
         TIPOUSUARIOTapi port = null;
         try {
@@ -53,8 +51,8 @@ public class TipoUsuarioController {
             port = service.getTIPOUSUARIOTapiPort();
             
             StringBuilder idTipoUsuario = new StringBuilder();
-            idTipoUsuario.append(TipoUsuario.getid_tipo_usuario());
-            int result = port.tuUpd(TipoUsuario.getrut_actualizacion(), TipoUsuario.getglosa_tipo_usuario(),idTipoUsuario.toString());
+            idTipoUsuario.append(tipoUsuario.getid_tipo_usuario());
+            int result = port.tuUpd(tipoUsuario.getrut_actualizacion(), tipoUsuario.getglosa_tipo_usuario(),idTipoUsuario.toString());
 
             if (result > 0) {
                 resultado = true;
@@ -70,7 +68,7 @@ public class TipoUsuarioController {
         }
     }
     
-        public boolean actualizarTipoUsuario(TipoUsuario TipoUsuario) {
+        public boolean actualizarTipoUsuario(TipoUsuario tipoUsuario) {
         TIPOUSUARIOTapi_Service service = null;
         TIPOUSUARIOTapi port = null;
         try {
@@ -79,8 +77,8 @@ public class TipoUsuarioController {
             port = service.getTIPOUSUARIOTapiPort();
             
             StringBuilder idTipoUsuario = new StringBuilder();
-            idTipoUsuario.append(TipoUsuario.getid_tipo_usuario());
-            int result = port.tuUpd(TipoUsuario.getrut_actualizacion(), TipoUsuario.getglosa_tipo_usuario(),idTipoUsuario.toString());
+            idTipoUsuario.append(tipoUsuario.getid_tipo_usuario());
+            int result = port.tuUpd(tipoUsuario.getrut_actualizacion(), tipoUsuario.getglosa_tipo_usuario(),idTipoUsuario.toString());
 
             if (result > 0) {
                 resultado = true;
@@ -97,5 +95,49 @@ public class TipoUsuarioController {
     
     }
         
+    public boolean eliminarTipoUsuario(String idTipoUsuario) {
+        TIPOUSUARIOTapi_Service service = null;
+        TIPOUSUARIOTapi port = null;
+        try {
+            boolean resultado = false;
+            service = new ws_pkg.TIPOUSUARIOTapi_Service();
+            port = service.getTIPOUSUARIOTapiPort();
+            int result = port.tuDel(idTipoUsuario);
+
+            if (result <= 0) {
+                resultado = false;
+            }
+
+            return resultado;
+        } catch (Exception e) {
+            logger.error("Error grave eliminando al Tipo Usuario.", e);
+            throw new RuntimeException(e);
+        } finally {
+            service = null;
+            port = null;
+        }
+    } 
+    
+    public TipoUsuario obtenerTipoUsuario(String idTipoUsuario) {
+        TIPOUSUARIOTapi_Service service = null;
+        TIPOUSUARIOTapi port = null;
+        ObjectMapper mapper = null;
+        try {
+            mapper = new ObjectMapper();
+            service = new ws_pkg.TIPOUSUARIOTapi_Service();
+            port = service.getTIPOUSUARIOTapiPort();
+            String result = port.tuSelId(idTipoUsuario);
+            List<TipoUsuario> UnidadI = mapper.readValue(result, new TypeReference<List<TipoUsuario>>() {
+                });
+            return UnidadI.get(0);
+        } catch (Exception e) {
+            logger.error("Error grave al obtener la Unidad Interna.", e);
+            throw new RuntimeException(e);
+        } finally {
+            mapper = null;
+            service = null;
+            port = null;
+        }
+    }
         
 }

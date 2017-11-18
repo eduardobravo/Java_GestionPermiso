@@ -9,12 +9,12 @@ package cl.duoc.portafolio.vista;
  *
  * @author lun4t1k0
  */
-public class TipoAprobacion extends javax.swing.JInternalFrame {
+public class TipoAprobacionView extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TipoAprobacion
      */
-    public TipoAprobacion() {
+    public TipoAprobacionView() {
         initComponents();
     }
 

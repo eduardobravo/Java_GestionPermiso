@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws_pkg/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws_pkg/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="ch_del" type="tns:ch_del"/>
+
+<xs:element name="ch_delResponse" type="tns:ch_delResponse"/>
+
+<xs:element name="ch_ins" type="tns:ch_ins"/>
+
+<xs:element name="ch_insResponse" type="tns:ch_insResponse"/>
+
+<xs:element name="ch_sel" type="tns:ch_sel"/>
+
+<xs:element name="ch_selId" type="tns:ch_selId"/>
+
+<xs:element name="ch_selIdResponse" type="tns:ch_selIdResponse"/>
+
+<xs:element name="ch_selResponse" type="tns:ch_selResponse"/>
+
+<xs:element name="ch_upd" type="tns:ch_upd"/>
+
+<xs:element name="ch_updResponse" type="tns:ch_updResponse"/>
+
+<xs:complexType name="ch_selId">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_selIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_del">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_delResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_sel">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ch_selResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_ins">
+<xs:sequence>
+<xs:element name="p_HABIL" type="xs:string" minOccurs="0"/>
+<xs:element name="p_MES" type="xs:string" minOccurs="0"/>
+<xs:element name="p_RUT_CREACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_ANIO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_DIA" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_insResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_upd">
+<xs:sequence>
+<xs:element name="p_RUT_ACTUALIZACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_HABIL" type="xs:string" minOccurs="0"/>
+<xs:element name="p_MES" type="xs:string" minOccurs="0"/>
+<xs:element name="p_ID_CALENDARIO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_ANIO" type="xs:string" minOccurs="0"/>
+<xs:element name="p_DIA" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ch_updResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -59,9 +59,12 @@ public class TipoUsoView extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTipoUso = new javax.swing.JTable();
-        btnTipoUso = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        btnEliminarTipoDeUso = new javax.swing.JButton();
+        btnEditarTipoDeUso = new javax.swing.JButton();
+        btnCrearTipoDeUso = new javax.swing.JButton();
+        lblSubTitulo1 = new javax.swing.JLabel();
+        lblSubTitulo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1024, 600));
@@ -79,18 +82,20 @@ public class TipoUsoView extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblTipoUso);
 
-        btnTipoUso.setText("Listar Tipo Uso");
-        btnTipoUso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTipoUsoActionPerformed(evt);
-            }
-        });
-
         lblTitulo.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
-        lblTitulo.setText("Lista de Usuarios Activos ");
+        lblTitulo.setText("Tipos de uso para el dia Libre");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
-        jLabel4.setText("Para editar un usuario solo debe seleccionarlo y luego presionar en el boton editar ");
+        btnEliminarTipoDeUso.setText("Eliminar");
+
+        btnEditarTipoDeUso.setText("Editar");
+
+        btnCrearTipoDeUso.setText("Crear");
+
+        lblSubTitulo1.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        lblSubTitulo1.setText("1. Para crear un nuevo tipo de aprobacion solo debe pulsar el boton \"Crear\"");
+
+        lblSubTitulo2.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        lblSubTitulo2.setText("2. Para editar un tipo de aprobacion debe seleccionar un tipo de dia libre y pulsar el boton \"Editar\"");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,41 +105,48 @@ public class TipoUsoView extends javax.swing.JInternalFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(667, 667, 667))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(661, 661, 661)))
-                        .addContainerGap())
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnCrearTipoDeUso)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditarTipoDeUso)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarTipoDeUso))
+                            .addComponent(jScrollPane1))
+                        .addGap(60, 60, 60))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 742, Short.MAX_VALUE)
-                                .addComponent(btnTipoUso)))
-                        .addGap(60, 60, 60))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblSubTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(157, 157, 157))
+                            .addComponent(lblSubTitulo2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE)
+                .addComponent(lblSubTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblSubTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnTipoUso, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditarTipoDeUso)
+                    .addComponent(btnEliminarTipoDeUso)
+                    .addComponent(btnCrearTipoDeUso, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnTipoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipoUsoActionPerformed
-        // TODO add your handling code here:
-        cargaTabla();
-    }//GEN-LAST:event_btnTipoUsoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,9 +184,12 @@ public class TipoUsoView extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnTipoUso;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton btnCrearTipoDeUso;
+    private javax.swing.JButton btnEditarTipoDeUso;
+    private javax.swing.JButton btnEliminarTipoDeUso;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblSubTitulo1;
+    private javax.swing.JLabel lblSubTitulo2;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tblTipoUso;
     // End of variables declaration//GEN-END:variables

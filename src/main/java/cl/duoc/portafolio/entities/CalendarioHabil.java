@@ -19,6 +19,7 @@ public class CalendarioHabil {
     private String fecha_creacion;
     private String rut_actualizacion;
     private String fecha_actualizacion;
+    private int flag_activo;
 
     public CalendarioHabil() {
         this.id_calendario = 0;
@@ -30,9 +31,10 @@ public class CalendarioHabil {
         this.fecha_creacion = "";
         this.rut_actualizacion = "";
         this.fecha_actualizacion = "";
+        this.flag_activo = 0;
     }
 
-    public CalendarioHabil(int id_calendario, int anio, int mes, int dia, int habil, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion) {
+    public CalendarioHabil(int id_calendario, int anio, int mes, int dia, int habil, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion, int flag_activo) {
         this.id_calendario = id_calendario;
         this.anio = anio;
         this.mes = mes;
@@ -42,6 +44,7 @@ public class CalendarioHabil {
         this.fecha_creacion = fecha_creacion;
         this.rut_actualizacion = rut_actualizacion;
         this.fecha_actualizacion = fecha_actualizacion;
+        this.flag_activo = flag_activo;
     }
 
     public int getId_calendario() {
@@ -116,9 +119,16 @@ public class CalendarioHabil {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
-    @Override
-    public String toString() {
-        return "CalendarioHabil{" + "id_calendario=" + id_calendario + ", anio=" + anio + ", mes=" + mes + ", dia=" + dia + ", habil=" + habil + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+    public int getFlag_activo() {
+        return flag_activo;
     }
 
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
+    @Override
+    public String toString() {
+        return "CalendarioHabil{" + "id_calendario=" + id_calendario + ", anio=" + anio + ", mes=" + mes + ", dia=" + dia + ", habil=" + habil + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + ", flag_activo=" + flag_activo + '}';
+    }
 }

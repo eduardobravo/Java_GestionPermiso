@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws_pkg/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws_pkg/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="m_del" type="tns:m_del"/>
+
+<xs:element name="m_delResponse" type="tns:m_delResponse"/>
+
+<xs:element name="m_ins" type="tns:m_ins"/>
+
+<xs:element name="m_insResponse" type="tns:m_insResponse"/>
+
+<xs:element name="m_sel" type="tns:m_sel"/>
+
+<xs:element name="m_selId" type="tns:m_selId"/>
+
+<xs:element name="m_selIdResponse" type="tns:m_selIdResponse"/>
+
+<xs:element name="m_selResponse" type="tns:m_selResponse"/>
+
+<xs:element name="m_upd" type="tns:m_upd"/>
+
+<xs:element name="m_updResponse" type="tns:m_updResponse"/>
+
+<xs:complexType name="m_upd">
+<xs:sequence>
+<xs:element name="p_RUT_ACTUALIZACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_ID_MENU" type="xs:string" minOccurs="0"/>
+<xs:element name="p_GLOSA_MENU" type="xs:string" minOccurs="0"/>
+<xs:element name="p_PAGINA" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_updResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_selId">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_selIdResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_sel">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="m_selResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_del">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_delResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_ins">
+<xs:sequence>
+<xs:element name="p_RUT_CREACION" type="xs:string" minOccurs="0"/>
+<xs:element name="p_GLOSA_MENU" type="xs:string" minOccurs="0"/>
+<xs:element name="p_PAGINA" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="m_insResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

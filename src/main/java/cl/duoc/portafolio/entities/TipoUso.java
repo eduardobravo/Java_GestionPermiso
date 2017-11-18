@@ -16,6 +16,7 @@ public class TipoUso {
     private String fecha_creacion;
     private String rut_modificacion;
     private String fecha_modificacion;
+    private int flag_activo;
 
     public TipoUso() {
         this.id_tipo_uso = 0;
@@ -24,15 +25,17 @@ public class TipoUso {
         this.fecha_creacion = "";
         this.rut_modificacion = "";
         this.fecha_modificacion = "";
+        this.flag_activo = 0;
     }
     
-    public TipoUso(Integer id_tipo_uso, String glosa_tipo_uso, String rut_creacion, String fecha_creacion, String rut_modificacion, String fecha_modificacion) {
+    public TipoUso(Integer id_tipo_uso, String glosa_tipo_uso, String rut_creacion, String fecha_creacion, String rut_modificacion, String fecha_modificacion, int flag_activo) {
         this.id_tipo_uso = id_tipo_uso;
         this.glosa_tipo_uso = glosa_tipo_uso;
         this.rut_creacion = rut_creacion;
         this.fecha_creacion = fecha_creacion;
         this.rut_modificacion = rut_modificacion;
         this.fecha_modificacion = fecha_modificacion;
+        this.flag_activo = flag_activo;
     }
 
     public Integer getid_tipo_uso() {
@@ -83,9 +86,16 @@ public class TipoUso {
         this.fecha_modificacion = fecha_modificacion;
     }
 
+    public int getFlag_activo() {
+        return flag_activo;
+    }
+
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
     @Override
     public String toString() {
-        return "TipoUso{" + "id_tipo_uso=" + id_tipo_uso + ", glosa_tipo_uso=" + glosa_tipo_uso + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_modificacion=" + rut_modificacion + ", fecha_modificacion=" + fecha_modificacion + '}';
+        return "TipoUso{" + "id_tipo_uso=" + id_tipo_uso + ", glosa_tipo_uso=" + glosa_tipo_uso + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_modificacion=" + rut_modificacion + ", fecha_modificacion=" + fecha_modificacion + ", flag_activo=" + flag_activo + '}';
     }
-    
 }

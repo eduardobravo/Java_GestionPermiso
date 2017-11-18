@@ -27,37 +27,43 @@ public class TipoDiaLibreView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNombreDiaLibre = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtAreaGlosa = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        lblGlosa = new javax.swing.JLabel();
-        btnCrear = new javax.swing.JButton();
-        lblTitulo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblDescripcionGlosa = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        btnCrearTipoDiaLibre = new javax.swing.JButton();
+        btnEditarTipoDiaLibre = new javax.swing.JButton();
+        btnEliminarTipoDiaLibre = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTipoDiaLibre = new javax.swing.JTable();
+        lblSubTitulo2 = new javax.swing.JLabel();
+        lblSubTitulo1 = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(600, 450));
+        btnCrearTipoDiaLibre.setText("Crear");
 
-        txtAreaGlosa.setColumns(20);
-        txtAreaGlosa.setRows(5);
-        jScrollPane1.setViewportView(txtAreaGlosa);
+        btnEditarTipoDiaLibre.setText("Editar");
 
-        jLabel1.setText("Nombre tipo dia libre : ");
+        btnEliminarTipoDiaLibre.setText("Eliminar");
 
-        lblGlosa.setText("Glosa : ");
+        tblTipoDiaLibre.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblTipoDiaLibre);
 
-        btnCrear.setText("Crear");
+        lblSubTitulo2.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        lblSubTitulo2.setText("2. Para editar un tipo de aprobacion debe seleccionar un tipo de dia libre y pulsar el boton \"Editar\"");
+
+        lblSubTitulo1.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
+        lblSubTitulo1.setText("1. Para crear un nuevo tipo de aprobacion solo debe pulsar el boton \"Crear\"");
 
         lblTitulo.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
-        lblTitulo.setText("Tipo dia Libre");
-
-        lblDescripcionGlosa.setFont(new java.awt.Font("Lucida Grande", 2, 12)); // NOI18N
-        lblDescripcionGlosa.setText("Glosa es una descripcion corta sobre el tipo de dia libre");
-
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
-        jLabel4.setText("Ingrese el nombre del nuevo tipo de dia libre");
+        lblTitulo.setText("Tipo dia libre ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,50 +72,46 @@ public class TipoDiaLibreView extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSubTitulo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreDiaLibre)
-                        .addGap(124, 124, 124))
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(337, 337, 337))
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblGlosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(436, 436, 436))
-                    .addComponent(lblDescripcionGlosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(391, 391, 391)
-                        .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(57, 57, 57))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnCrearTipoDiaLibre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEditarTipoDiaLibre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminarTipoDiaLibre)))
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(lblSubTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel3)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtNombreDiaLibre))
-                .addGap(18, 18, 18)
-                .addComponent(lblGlosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblTitulo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addComponent(lblSubTitulo1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(8, 8, 8)
+                .addComponent(lblSubTitulo2)
                 .addGap(18, 18, 18)
-                .addComponent(lblDescripcionGlosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(37, 37, 37)
-                .addComponent(btnCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addGap(59, 59, 59))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEditarTipoDiaLibre)
+                            .addComponent(btnEliminarTipoDiaLibre)
+                            .addComponent(btnCrearTipoDiaLibre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(70, Short.MAX_VALUE))))
         );
 
         pack();
@@ -117,15 +119,14 @@ public class TipoDiaLibreView extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrear;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnCrearTipoDiaLibre;
+    private javax.swing.JButton btnEditarTipoDiaLibre;
+    private javax.swing.JButton btnEliminarTipoDiaLibre;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDescripcionGlosa;
-    private javax.swing.JLabel lblGlosa;
+    private javax.swing.JLabel lblSubTitulo1;
+    private javax.swing.JLabel lblSubTitulo2;
     private javax.swing.JLabel lblTitulo;
-    private javax.swing.JTextArea txtAreaGlosa;
-    private javax.swing.JTextField txtNombreDiaLibre;
+    private javax.swing.JTable tblTipoDiaLibre;
     // End of variables declaration//GEN-END:variables
 }

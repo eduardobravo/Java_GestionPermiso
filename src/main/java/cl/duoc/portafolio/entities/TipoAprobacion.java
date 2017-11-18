@@ -16,6 +16,7 @@ public class TipoAprobacion {
     private String fecha_creacion;
     private String rut_actualizacion;
     private String fecha_actualizacion;
+    private int flag_activo;
 
     public TipoAprobacion() {
         this.id_tipo_aprobacion = 0;
@@ -24,15 +25,17 @@ public class TipoAprobacion {
         this.fecha_creacion = "";
         this.rut_actualizacion = "";
         this.fecha_actualizacion = "";
+        this.flag_activo = 0;
     }
     
-    public TipoAprobacion(int id_tipo_aprobacion, String glosa_tipo_aprobacion, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion) {
+    public TipoAprobacion(int id_tipo_aprobacion, String glosa_tipo_aprobacion, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion, int flag_activo) {
         this.id_tipo_aprobacion = id_tipo_aprobacion;
         this.glosa_tipo_aprobacion = glosa_tipo_aprobacion;
         this.rut_creacion = rut_creacion;
         this.fecha_creacion = fecha_creacion;
         this.rut_actualizacion = rut_actualizacion;
         this.fecha_actualizacion = fecha_actualizacion;
+        this.flag_activo = flag_activo;
     }
 
     public int getId_tipo_aprobacion() {
@@ -83,9 +86,16 @@ public class TipoAprobacion {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
+    public int getFlag_activo() {
+        return flag_activo;
+    }
+
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
     @Override
     public String toString() {
-        return "TipoAprobacion{" + "id_tipo_aprobacion=" + id_tipo_aprobacion + ", glosa_tipo_aprobacion=" + glosa_tipo_aprobacion + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+        return "TipoAprobacion{" + "id_tipo_aprobacion=" + id_tipo_aprobacion + ", glosa_tipo_aprobacion=" + glosa_tipo_aprobacion + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + ", flag_activo=" + flag_activo + '}';
     }
-    
 }

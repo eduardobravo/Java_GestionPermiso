@@ -17,6 +17,7 @@ public class TipoDiaLibre {
     private String fecha_creacion;
     private String rut_actualizacion;
     private String fecha_actualizacion;
+    private int flag_activo;
 
     public TipoDiaLibre() {
         this.id_tipo_dia_libre = 0;
@@ -26,9 +27,10 @@ public class TipoDiaLibre {
         this.fecha_creacion = "";
         this.rut_actualizacion = "";
         this.fecha_actualizacion = "";
+        this.flag_activo = 0;
     }
 
-    public TipoDiaLibre(int id_tipo_dia_libre, String glosa_tipo_dia_libre, int cantidad_dias, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion) {
+    public TipoDiaLibre(int id_tipo_dia_libre, String glosa_tipo_dia_libre, int cantidad_dias, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion, int flag_activo) {
         this.id_tipo_dia_libre = id_tipo_dia_libre;
         this.glosa_tipo_dia_libre = glosa_tipo_dia_libre;
         this.cantidad_dias = cantidad_dias;
@@ -36,6 +38,7 @@ public class TipoDiaLibre {
         this.fecha_creacion = fecha_creacion;
         this.rut_actualizacion = rut_actualizacion;
         this.fecha_actualizacion = fecha_actualizacion;
+        this.flag_activo = flag_activo;
     }
 
     public int getId_tipo_dia_libre() {
@@ -94,9 +97,16 @@ public class TipoDiaLibre {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
-    @Override
-    public String toString() {
-        return "TipoDiaLibre{" + "id_tipo_dia_libre=" + id_tipo_dia_libre + ", glosa_tipo_dia_libre=" + glosa_tipo_dia_libre + ", cantidad_dias=" + cantidad_dias + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+    public int getFlag_activo() {
+        return flag_activo;
     }
 
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
+    @Override
+    public String toString() {
+        return "TipoDiaLibre{" + "id_tipo_dia_libre=" + id_tipo_dia_libre + ", glosa_tipo_dia_libre=" + glosa_tipo_dia_libre + ", cantidad_dias=" + cantidad_dias + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + ", flag_activo=" + flag_activo + '}';
+    }
 }

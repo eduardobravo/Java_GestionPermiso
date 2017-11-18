@@ -151,7 +151,7 @@ public class UsuarioController {
                 });
             return usu.get(0);
         } catch (Exception e) {
-            logger.error("Error grave eliminando usuario.", e);
+            logger.error("Error grave al obtener usuario.", e);
             throw new RuntimeException(e);
         } finally {
             mapper = null;

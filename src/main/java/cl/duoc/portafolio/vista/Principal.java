@@ -6,6 +6,7 @@
 package cl.duoc.portafolio.vista;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -15,6 +16,7 @@ public class Principal extends javax.swing.JFrame {
 
     private UsuarioView usuarioView = null;
     private UnidadInternaView unidadInternaView = null;
+    private TipoUsuarioView TipoUsuarioView = null;
     /**
      * Creates new form Principal
      */
@@ -251,6 +253,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void imnTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoUsuarioActionPerformed
         // TODO add your handling code here:
+//        if (this.getTipoUsuarioView() == null) {
+//            TipoUsuarioView esrv = new TipoUsuarioView();
+//            this.setTipoUsuarioView(esrv);
+//            this.pnlPrincipal.add(this.getTipoUsuarioView());
+//            this.getTipoUsuarioView().show();
+//        } else {
+//            if (this.getTipoUsuarioView().isVisible() == false) {
+//                TipoUsuarioView esrv = new TipoUsuarioView();
+//                this.setTipoUsuarioView(esrv);
+//                this.pnlPrincipal.add(this.getTipoUsuarioaView());
+//                this.getTipoUsuarioView().show();
+//            }
+//        }
     }//GEN-LAST:event_imnTipoUsuarioActionPerformed
 
     /**
@@ -303,6 +318,7 @@ public class Principal extends javax.swing.JFrame {
     public void setUnidadInternaView(UnidadInternaView unidadInternaView) {
         this.unidadInternaView = unidadInternaView;
     }
+
     
     
 

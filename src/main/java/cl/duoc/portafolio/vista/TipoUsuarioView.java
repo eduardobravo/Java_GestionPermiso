@@ -70,8 +70,9 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
         lblTitulo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        btnCrear = new javax.swing.JButton();
+        btnEliminarTipoDeUsuario = new javax.swing.JButton();
+        btnEditarTipoDeUsuario = new javax.swing.JButton();
+        btnCrearTipoDeUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -97,9 +98,11 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 2, 13)); // NOI18N
         jLabel5.setText("2. Para editar un tipo de usuario debe seleccionar un tipo de usuario y pulsar el boton \"Editar\"");
 
-        jButton1.setText("Editar");
+        btnEliminarTipoDeUsuario.setText("Eliminar");
 
-        btnCrear.setText("Crear");
+        btnEditarTipoDeUsuario.setText("Editar");
+
+        btnCrearTipoDeUsuario.setText("Crear");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,10 +111,12 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCrear)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addContainerGap()
+                        .addComponent(btnCrearTipoDeUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditarTipoDeUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminarTipoDeUsuario))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,18 +133,19 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                .addComponent(lblTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btnCrear))
-                .addGap(40, 40, 40))
+                    .addComponent(btnEditarTipoDeUsuario)
+                    .addComponent(btnEliminarTipoDeUsuario)
+                    .addComponent(btnCrearTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42))
         );
 
         pack();
@@ -181,8 +187,9 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrear;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCrearTipoDeUsuario;
+    private javax.swing.JButton btnEditarTipoDeUsuario;
+    private javax.swing.JButton btnEliminarTipoDeUsuario;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;

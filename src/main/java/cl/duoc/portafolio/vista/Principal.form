@@ -6,7 +6,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="mnUsuario">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Usuario"/>
+            <Property name="text" type="java.lang.String" value="Usuario  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnUsuario">
@@ -21,7 +21,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnUnidadInterna">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Unidad Interna"/>
+            <Property name="text" type="java.lang.String" value="  Unidad Interna  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnUnidadInterna">
@@ -36,7 +36,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnCalendarioHabil">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Calendario"/>
+            <Property name="text" type="java.lang.String" value="  Calendario  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnCalendarioHabil">
@@ -51,7 +51,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnFeriadoManual">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Feriado"/>
+            <Property name="text" type="java.lang.String" value="  Feriado  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnFeriadoManual">
@@ -66,7 +66,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Men&#xfa;"/>
+            <Property name="text" type="java.lang.String" value="  Men&#xfa;  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnMenu">
@@ -81,7 +81,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnTipoUso">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de Uso"/>
+            <Property name="text" type="java.lang.String" value="  Tipo de Uso  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnTipoUso">
@@ -96,7 +96,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnTipoAprobacion">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo Aprobaci&#xf3;n"/>
+            <Property name="text" type="java.lang.String" value="  Tipo Aprobaci&#xf3;n  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnTipoAprobacion">
@@ -111,7 +111,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnTipoDiaLibre">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo D&#xed;a Libre"/>
+            <Property name="text" type="java.lang.String" value="  Tipo D&#xed;a Libre  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnTipoDiaLibre">
@@ -126,7 +126,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnTipoUsuario">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo Usuario"/>
+            <Property name="text" type="java.lang.String" value="  Tipo Usuario  "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="imnTipoUsuario">

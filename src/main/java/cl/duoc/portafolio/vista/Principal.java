@@ -67,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 583, Short.MAX_VALUE)
         );
 
-        mnUsuario.setText("Usuario");
+        mnUsuario.setText("Usuario  ");
 
         imnUsuario.setText("Administrar");
         imnUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +79,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnUsuario);
 
-        mnUnidadInterna.setText("Unidad Interna");
+        mnUnidadInterna.setText("  Unidad Interna  ");
 
         imnUnidadInterna.setText("Administrar");
         imnUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +91,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnUnidadInterna);
 
-        mnCalendarioHabil.setText("Calendario");
+        mnCalendarioHabil.setText("  Calendario  ");
 
         imnCalendarioHabil.setText("Administrar");
         imnCalendarioHabil.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +103,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnCalendarioHabil);
 
-        mnFeriadoManual.setText("Feriado");
+        mnFeriadoManual.setText("  Feriado  ");
 
         imnFeriadoManual.setText("Administrar");
         imnFeriadoManual.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnFeriadoManual);
 
-        mnMenu.setText("Menú");
+        mnMenu.setText("  Menú  ");
 
         imnMenu.setText("Administrar");
         imnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnMenu);
 
-        mnTipoUso.setText("Tipo de Uso");
+        mnTipoUso.setText("  Tipo de Uso  ");
 
         imnTipoUso.setText("Administrar");
         imnTipoUso.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +139,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnTipoUso);
 
-        mnTipoAprobacion.setText("Tipo Aprobación");
+        mnTipoAprobacion.setText("  Tipo Aprobación  ");
 
         imnTipoAprobacion.setText("Administrar");
         imnTipoAprobacion.addActionListener(new java.awt.event.ActionListener() {
@@ -151,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnTipoAprobacion);
 
-        mnTipoDiaLibre.setText("Tipo Día Libre");
+        mnTipoDiaLibre.setText("  Tipo Día Libre  ");
 
         imnTipoDiaLibre.setText("Administrar");
         imnTipoDiaLibre.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(mnTipoDiaLibre);
 
-        mnTipoUsuario.setText("Tipo Usuario");
+        mnTipoUsuario.setText("  Tipo Usuario  ");
 
         imnTipoUsuario.setText("Administrar");
         imnTipoUsuario.addActionListener(new java.awt.event.ActionListener() {

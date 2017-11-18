@@ -14,5 +14,6 @@ That way multiple projects can share the same settings (useful for formatting ru
 Any value defined here will override the pom.xml file value but is only applicable to the current project.
 -->
         <org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_APROBACION_5f_tapi>http://localhost:8080/WS_GestionPermiso/TIPO_APROBACION_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_APROBACION_5f_tapi>
+        <org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_DIA_5f_LIBRE_5f_tapi>http://localhost:8080/WS_GestionPermiso/TIPO_DIA_LIBRE_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_DIA_5f_LIBRE_5f_tapi>
     </properties>
 </project-shared-configuration>

@@ -16,7 +16,9 @@ public class Principal extends javax.swing.JFrame {
 
     private UsuarioView usuarioView = null;
     private UnidadInternaView unidadInternaView = null;
-    private TipoUsuarioView TipoUsuarioView = null;
+    private TipoUsuarioView tipoUsuarioView = null;
+    private TipoAprobacionView tipoAprobacionView = null;
+
     /**
      * Creates new form Principal
      */
@@ -245,6 +247,19 @@ public class Principal extends javax.swing.JFrame {
 
     private void imnTipoAprobacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoAprobacionActionPerformed
         // TODO add your handling code here:
+        if (this.getTipoAprobacionView() == null) {
+            TipoAprobacionView tav = new TipoAprobacionView();
+            this.setTipoAprobacionView(tav);
+            this.pnlPrincipal.add(this.getTipoAprobacionView());
+            this.getTipoAprobacionView().show();
+        } else {
+            if (this.getTipoAprobacionView().isVisible() == false) {
+                TipoAprobacionView tav = new TipoAprobacionView();
+                this.setTipoAprobacionView(tav);
+                this.pnlPrincipal.add(this.getTipoAprobacionView());
+                this.getTipoAprobacionView().show();
+            }
+        }
     }//GEN-LAST:event_imnTipoAprobacionActionPerformed
 
     private void imnTipoDiaLibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imnTipoDiaLibreActionPerformed
@@ -317,6 +332,22 @@ public class Principal extends javax.swing.JFrame {
 
     public void setUnidadInternaView(UnidadInternaView unidadInternaView) {
         this.unidadInternaView = unidadInternaView;
+    }
+
+    public TipoUsuarioView getTipoUsuarioView() {
+        return tipoUsuarioView;
+    }
+
+    public void setTipoUsuarioView(TipoUsuarioView tipoUsuarioView) {
+        this.tipoUsuarioView = tipoUsuarioView;
+    }
+
+    public TipoAprobacionView getTipoAprobacionView() {
+        return tipoAprobacionView;
+    }
+
+    public void setTipoAprobacionView(TipoAprobacionView tipoAprobacionView) {
+        this.tipoAprobacionView = tipoAprobacionView;
     }
 
     

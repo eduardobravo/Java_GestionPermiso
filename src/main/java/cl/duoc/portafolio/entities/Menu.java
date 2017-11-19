@@ -17,6 +17,7 @@ public class Menu {
     private String fecha_creacion;
     private String rut_actualizacion;
     private String fecha_actualizacion;
+    private int flag_activo;
 
     public Menu() {
         this.id_menu = 0;
@@ -26,9 +27,10 @@ public class Menu {
         this.fecha_creacion = "";
         this.rut_actualizacion = "";
         this.fecha_actualizacion = "";
+        this.flag_activo = 0;
     }
     
-    public Menu(int id_menu, String glosa_menu, String pagina, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion) {
+    public Menu(int id_menu, String glosa_menu, String pagina, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion, int flag_activo) {
         this.id_menu = id_menu;
         this.glosa_menu = glosa_menu;
         this.pagina = pagina;
@@ -36,6 +38,7 @@ public class Menu {
         this.fecha_creacion = fecha_creacion;
         this.rut_actualizacion = rut_actualizacion;
         this.fecha_actualizacion = fecha_actualizacion;
+        this.flag_activo = flag_activo;
     }
 
     public int getId_menu() {
@@ -94,9 +97,16 @@ public class Menu {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
+    public int getFlag_activo() {
+        return flag_activo;
+    }
+
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
     @Override
     public String toString() {
-        return "Menu{" + "id_menu=" + id_menu + ", glosa_menu=" + glosa_menu + ", pagina=" + pagina + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+        return "Menu{" + "id_menu=" + id_menu + ", glosa_menu=" + glosa_menu + ", pagina=" + pagina + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + ", flag_activo=" + flag_activo + '}';
     }
-    
 }

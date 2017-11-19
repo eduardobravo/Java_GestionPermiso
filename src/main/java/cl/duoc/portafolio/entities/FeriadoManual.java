@@ -18,6 +18,7 @@ public class FeriadoManual {
     private String fecha_creacion;
     private String rut_actualizacion;
     private String fecha_actualizacion;
+    private int flag_activo;
 
     public FeriadoManual() {
         this.id_feriado_manual = 0;
@@ -28,9 +29,10 @@ public class FeriadoManual {
         this.fecha_creacion = "";
         this.rut_actualizacion = "";
         this.fecha_actualizacion = "";
+        this.flag_activo = 0;
     }
     
-    public FeriadoManual(int id_feriado_manual, int anio, int mes, int dia, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion) {
+    public FeriadoManual(int id_feriado_manual, int anio, int mes, int dia, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion, int flag_activo) {
         this.id_feriado_manual = id_feriado_manual;
         this.anio = anio;
         this.mes = mes;
@@ -39,6 +41,7 @@ public class FeriadoManual {
         this.fecha_creacion = fecha_creacion;
         this.rut_actualizacion = rut_actualizacion;
         this.fecha_actualizacion = fecha_actualizacion;
+        this.flag_activo = flag_activo;
     }
 
     public int getId_feriado_manual() {
@@ -105,9 +108,17 @@ public class FeriadoManual {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
+    public int getFlag_activo() {
+        return flag_activo;
+    }
+
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
     @Override
     public String toString() {
-        return "FeriadoManual{" + "id_feriado_manual=" + id_feriado_manual + ", anio=" + anio + ", mes=" + mes + ", dia=" + dia + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+        return "FeriadoManual{" + "id_feriado_manual=" + id_feriado_manual + ", anio=" + anio + ", mes=" + mes + ", dia=" + dia + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + ", flag_activo=" + flag_activo + '}';
     }
-    
+
 }

@@ -16,6 +16,7 @@ public class UnidadInterna {
     private String fecha_creacion;
     private String rut_actualizacion;
     private String fecha_actualizacion;
+    private int flag_activo;
 
     public UnidadInterna() {
         this.id_unidad_interna = 0;
@@ -24,15 +25,17 @@ public class UnidadInterna {
         this.fecha_creacion = "";
         this.rut_actualizacion = "";
         this.fecha_actualizacion = "";
+        this.flag_activo = 0;
     }
     
-    public UnidadInterna(Integer id_unidad_interna, String glosa_unidad_interna, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion) {
+    public UnidadInterna(Integer id_unidad_interna, String glosa_unidad_interna, String rut_creacion, String fecha_creacion, String rut_actualizacion, String fecha_actualizacion, int flag_activo) {
         this.id_unidad_interna = id_unidad_interna;
         this.glosa_unidad_interna = glosa_unidad_interna;
         this.rut_creacion = rut_creacion;
         this.fecha_creacion = fecha_creacion;
         this.rut_actualizacion = rut_actualizacion;
         this.fecha_actualizacion = fecha_actualizacion;
+        this.flag_activo = flag_activo;
     }
 
     public Integer getId_unidad_interna() {
@@ -83,9 +86,17 @@ public class UnidadInterna {
         this.fecha_actualizacion = fecha_actualizacion;
     }
 
+    public int getFlag_activo() {
+        return flag_activo;
+    }
+
+    public void setFlag_activo(int flag_activo) {
+        this.flag_activo = flag_activo;
+    }
+
     @Override
     public String toString() {
-        return "UnidadInterna{" + "id_unidad_interna=" + id_unidad_interna + ", glosa_unidad_interna=" + glosa_unidad_interna + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + '}';
+        return "UnidadInterna{" + "id_unidad_interna=" + id_unidad_interna + ", glosa_unidad_interna=" + glosa_unidad_interna + ", rut_creacion=" + rut_creacion + ", fecha_creacion=" + fecha_creacion + ", rut_actualizacion=" + rut_actualizacion + ", fecha_actualizacion=" + fecha_actualizacion + ", flag_activo=" + flag_activo + '}';
     }
-    
+
 }

@@ -18,6 +18,7 @@ import ws_pkg.TIPOUSUARIOTapi_Service;
  * @author Edo
  */
 public class TipoUsuarioController {
+
     private final static Logger logger = Logger.getLogger(TipoUsuarioController.class);
 
     public List<TipoUsuario> getTipoUsuarios() {
@@ -30,7 +31,8 @@ public class TipoUsuarioController {
             service = new TIPOUSUARIOTapi_Service();
             port = service.getTIPOUSUARIOTapiPort();
             String result = port.tuSel();
-            listaTipoUsuarios = mapper.readValue(result, new TypeReference<List<TipoUsuario>>(){}); 
+            listaTipoUsuarios = mapper.readValue(result, new TypeReference<List<TipoUsuario>>() {
+            });
         } catch (Exception e) {
             logger.error("Error grave obteniendo Tipos de Usuarios desde WS.", e);
             throw new RuntimeException(e);
@@ -41,20 +43,24 @@ public class TipoUsuarioController {
         }
         return listaTipoUsuarios;
     }
-    
-    public boolean crearTipoUsuario (TipoUsuario tipoUsuario) {
+
+    public boolean crearTipoUsuario(TipoUsuario tipoUsuario) {
         TIPOUSUARIOTapi_Service service = null;
         TIPOUSUARIOTapi port = null;
+        List<TipoUsuario> listaTipoUsuarios = null;
+        ObjectMapper mapper = null;
         try {
             boolean resultado = false;
             service = new ws_pkg.TIPOUSUARIOTapi_Service();
             port = service.getTIPOUSUARIOTapiPort();
-            
-            StringBuilder idTipoUsuario = new StringBuilder();
-            idTipoUsuario.append(tipoUsuario.getid_tipo_usuario());
-            int result = port.tuUpd(tipoUsuario.getrut_actualizacion(), tipoUsuario.getglosa_tipo_usuario(),idTipoUsuario.toString());
 
-            if (result > 0) {
+//            StringBuilder idTipoUsuario = new StringBuilder();
+//            idTipoUsuario.append(tipoUsuario.getid_tipo_usuario());
+            String result = port.tuIns(tipoUsuario.getglosa_tipo_usuario(), tipoUsuario.getrut_actualizacion());
+
+            listaTipoUsuarios = mapper.readValue(result, new TypeReference<List<TipoUsuario>>() {});
+
+            if (listaTipoUsuarios.get(0).getid_tipo_usuario() > 0) {
                 resultado = true;
             }
 
@@ -67,18 +73,18 @@ public class TipoUsuarioController {
             port = null;
         }
     }
-    
-        public boolean actualizarTipoUsuario(TipoUsuario tipoUsuario) {
+
+    public boolean actualizarTipoUsuario(TipoUsuario tipoUsuario) {
         TIPOUSUARIOTapi_Service service = null;
         TIPOUSUARIOTapi port = null;
         try {
             boolean resultado = false;
             service = new ws_pkg.TIPOUSUARIOTapi_Service();
             port = service.getTIPOUSUARIOTapiPort();
-            
+
             StringBuilder idTipoUsuario = new StringBuilder();
             idTipoUsuario.append(tipoUsuario.getid_tipo_usuario());
-            int result = port.tuUpd(tipoUsuario.getrut_actualizacion(), tipoUsuario.getglosa_tipo_usuario(),idTipoUsuario.toString());
+            int result = port.tuUpd(tipoUsuario.getrut_actualizacion(), tipoUsuario.getglosa_tipo_usuario(), idTipoUsuario.toString());
 
             if (result > 0) {
                 resultado = true;
@@ -86,15 +92,15 @@ public class TipoUsuarioController {
 
             return resultado;
         } catch (Exception e) {
-            logger.error("Error grave actualizando lista de Unidad Interna desde WS.", e);
+            logger.error("Error grave actualizando Tipo de Usuario desde WS.", e);
             throw new RuntimeException(e);
         } finally {
             service = null;
             port = null;
         }
-    
+
     }
-        
+
     public boolean eliminarTipoUsuario(String idTipoUsuario) {
         TIPOUSUARIOTapi_Service service = null;
         TIPOUSUARIOTapi port = null;
@@ -116,8 +122,8 @@ public class TipoUsuarioController {
             service = null;
             port = null;
         }
-    } 
-    
+    }
+
     public TipoUsuario obtenerTipoUsuario(String idTipoUsuario) {
         TIPOUSUARIOTapi_Service service = null;
         TIPOUSUARIOTapi port = null;
@@ -128,10 +134,10 @@ public class TipoUsuarioController {
             port = service.getTIPOUSUARIOTapiPort();
             String result = port.tuSelId(idTipoUsuario);
             List<TipoUsuario> UnidadI = mapper.readValue(result, new TypeReference<List<TipoUsuario>>() {
-                });
+            });
             return UnidadI.get(0);
         } catch (Exception e) {
-            logger.error("Error grave al obtener la Unidad Interna.", e);
+            logger.error("Error grave al obtener el Tipo de Usuario.", e);
             throw new RuntimeException(e);
         } finally {
             mapper = null;
@@ -139,5 +145,5 @@ public class TipoUsuarioController {
             port = null;
         }
     }
-        
+
 }

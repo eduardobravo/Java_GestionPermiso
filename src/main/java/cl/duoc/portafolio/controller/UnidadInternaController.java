@@ -13,13 +13,12 @@ import org.apache.log4j.Logger;
 import ws_pkg.UNIDADINTERNATapi;
 import ws_pkg.UNIDADINTERNATapi_Service;
 
-
-
 /**
  *
  * @author Edo
  */
 public class UnidadInternaController {
+
     private final static Logger logger = Logger.getLogger(UnidadInternaController.class);
 
     public List<UnidadInterna> getUnidadInternas() {
@@ -32,7 +31,7 @@ public class UnidadInternaController {
             service = new UNIDADINTERNATapi_Service();
             port = service.getUNIDADINTERNATapiPort();
             String result = port.uiSel();
-            listaUnidadInternas = mapper.readValue(result, new TypeReference<List<UnidadInterna>>(){}); 
+            listaUnidadInternas = mapper.readValue(result, new TypeReference<List<UnidadInterna>>() {});
         } catch (Exception e) {
             logger.error("Error grave obteniendo Unidad Interna desde WS.", e);
             throw new RuntimeException(e);
@@ -43,17 +42,21 @@ public class UnidadInternaController {
         }
         return listaUnidadInternas;
     }
-    
+
     public boolean crearUnidadInterna(UnidadInterna UnidadI) {
         UNIDADINTERNATapi_Service service = null;
         UNIDADINTERNATapi port = null;
+        List<UnidadInterna> listaUnidadInternas = null;
+        ObjectMapper mapper = null;
         try {
             boolean resultado = false;
             service = new ws_pkg.UNIDADINTERNATapi_Service();
             port = service.getUNIDADINTERNATapiPort();
-            int result = port.uiUpd(UnidadI.getRut_actualizacion(), UnidadI.getId_unidad_interna().toString(), UnidadI.getGlosa_unidad_interna());
+            String result = port.uiIns(UnidadI.getRut_actualizacion(), UnidadI.getGlosa_unidad_interna());
 
-            if (result > 0) {
+            listaUnidadInternas = mapper.readValue(result, new TypeReference<List<UnidadInterna>>() {});
+
+            if (listaUnidadInternas.get(0).getId_unidad_interna() > 0) {
                 resultado = true;
             }
 
@@ -66,7 +69,7 @@ public class UnidadInternaController {
             port = null;
         }
     }
-    
+
     public boolean actualizarUnidadInterna(UnidadInterna UnidadI) {
         UNIDADINTERNATapi_Service service = null;
         UNIDADINTERNATapi port = null;
@@ -89,7 +92,7 @@ public class UnidadInternaController {
             port = null;
         }
     }
-    
+
     public boolean eliminarUnidadInterna(String idUnidadI) {
         UNIDADINTERNATapi_Service service = null;
         UNIDADINTERNATapi port = null;
@@ -112,7 +115,7 @@ public class UnidadInternaController {
             port = null;
         }
     }
-    
+
     public UnidadInterna obtenerUnidadInterna(String idUnidadI) {
         UNIDADINTERNATapi_Service service = null;
         UNIDADINTERNATapi port = null;
@@ -123,7 +126,7 @@ public class UnidadInternaController {
             port = service.getUNIDADINTERNATapiPort();
             String result = port.uiSelId(idUnidadI);
             List<UnidadInterna> UnidadI = mapper.readValue(result, new TypeReference<List<UnidadInterna>>() {
-                });
+            });
             return UnidadI.get(0);
         } catch (Exception e) {
             logger.error("Error grave al obtener la Unidad Interna.", e);

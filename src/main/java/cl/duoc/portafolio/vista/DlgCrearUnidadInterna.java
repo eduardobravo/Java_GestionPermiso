@@ -120,7 +120,7 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCrearTipoUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoUnidadInternaActionPerformed
@@ -144,6 +144,7 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
                 }
             } else {
                 //Crear
+                uni = new UnidadInterna();
                 uni.setGlosa_unidad_interna(this.txtTipoUnidadInterna.getText().trim());
                 
                 //incorporar rut de navegación

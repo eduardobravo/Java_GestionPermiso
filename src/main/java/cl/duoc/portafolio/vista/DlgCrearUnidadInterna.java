@@ -144,6 +144,7 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
                 }
             } else {
                 //Crear
+                uni = new UnidadInterna();
                 uni.setGlosa_unidad_interna(this.txtTipoUnidadInterna.getText().trim());
                 
                 //incorporar rut de navegación

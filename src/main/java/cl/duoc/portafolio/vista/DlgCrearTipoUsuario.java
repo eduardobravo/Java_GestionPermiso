@@ -64,7 +64,7 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
 
         lblNombreTipoUsuario.setText("Nombre Tipo Usuario :");
 
-        btnCrearTipoUsuario.setText("Crear");
+        btnCrearTipoUsuario.setText("Aceptar");
         btnCrearTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearTipoUsuarioActionPerformed(evt);

@@ -5,6 +5,10 @@
  */
 package cl.duoc.portafolio.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author lun4t1k0
@@ -37,6 +41,22 @@ public class ValidacionesController {
     return validacion;
     }
 
+    public String ValidarFecha(String fecha1, String fecha2) throws ParseException{
+        
+        SimpleDateFormat sf = new SimpleDateFormat("dd/mm/yyyy");
+        Date fechaIngreso = sf.parse(fecha1);
+        Date FechaContrato = sf.parse(fecha2);
+          
+          if (FechaContrato.after(fechaIngreso)) {
+              System.out.println("fechaContrato es Mayor que fecha Ingreso");            
+        }else if(FechaContrato.before(fechaIngreso)){
+              System.out.println("Fecha de Contrato es menor que Fecha de Ingreso");
+              return "Fecha de Contrato es menor que fecha de ingreso, favor revisar";
+        }else if (FechaContrato.equals(fechaIngreso)) {
+              System.out.println("Las Fechas Son iguales");
+        }
+        
+        return null;
+        
     }
-
-//validarFecha
+}

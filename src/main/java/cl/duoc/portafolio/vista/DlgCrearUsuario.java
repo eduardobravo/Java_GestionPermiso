@@ -109,6 +109,11 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         lblFechaContrato.setText("Fecha Contrato");
 
         ftfFechaContrato.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        ftfFechaContrato.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ftfFechaContratoFocusLost(evt);
+            }
+        });
 
         lblClaveRepite.setText("Reingrese Clave");
 
@@ -346,14 +351,37 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     private void txtRutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRutFocusLost
         // TODO add your handling code here:
         ValidacionesController valid = new ValidacionesController();
-       boolean valido = valid.validarRut(txtRut.getText().trim());
+        try {
+            boolean valido = valid.validarRut(txtRut.getText().trim());
        
         if (!valido) {
             JOptionPane.showMessageDialog(this, "El Rut no es valido", "Error",JOptionPane.ERROR_MESSAGE);
         } else {
             
         }
+        } catch (Exception e) {
+        }
+        finally{
+            valid = null;
+        }
+       
     }//GEN-LAST:event_txtRutFocusLost
+
+    private void ftfFechaContratoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftfFechaContratoFocusLost
+        // TODO add your handling code here:
+         ValidacionesController valid = new ValidacionesController();
+         try {
+             String resultado = valid.ValidarFecha(ftfFechaIngreso.getText().trim(), ftfFechaContrato.getText().trim());
+             if (!resultado.isEmpty()) {
+               JOptionPane.showConfirmDialog(this, resultado, "Error",JOptionPane.ERROR_MESSAGE);
+             } 
+        } catch (Exception e) {
+        }finally{
+             valid = null;
+         }
+ 
+        
+    }//GEN-LAST:event_ftfFechaContratoFocusLost
 
     /**
      * @param args the command line arguments

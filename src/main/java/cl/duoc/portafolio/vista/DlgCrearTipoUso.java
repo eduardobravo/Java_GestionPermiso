@@ -5,18 +5,35 @@
  */
 package cl.duoc.portafolio.vista;
 
+import cl.duoc.portafolio.controller.TipoUsoController;
+import cl.duoc.portafolio.entities.TipoUso;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author lun4t1k0
  */
 public class DlgCrearTipoUso extends javax.swing.JDialog {
 
-    /**
-     * Creates new form DlgCrearTipoUso
-     */
-    public DlgCrearTipoUso(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    private final static Logger logger = Logger.getLogger(DlgCrearTipoUso.class);
+    private static TipoUsoView tipoUsoView = null;
+    private static TipoUso tiuso = null;
+    
+    
+   public DlgCrearTipoUso(TipoUsoView uipoUsoViewP, boolean modal, TipoUso tipoUso) {
+        tipoUsoView = uipoUsoViewP;
+        tiuso = tipoUso;
+        this.setModal(modal);
         initComponents();
+        setLocationRelativeTo(this);
+        if (tiuso != null) {
+            this.cargarDatos(tipoUso);
+        }
+    }
+   
+    private void cargarDatos(TipoUso tipoUso) {
+        this.txtTipoUso.setText(tipoUso.getglosa_tipo_uso());
     }
 
     /**
@@ -46,6 +63,11 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
         lblNombreTipoAprobacion.setText("Nombre Tipo Uso:");
 
         btnCrearTipoUso.setText("Crear");
+        btnCrearTipoUso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoUsoActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +126,47 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
         System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnCrearTipoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoUsoActionPerformed
+         
+        TipoUsoController tipoUsoCont = new TipoUsoController();
+        try {
+            //Acción actualizar o crear
+            if (tiuso != null) {
+                //Actualizar
+                tiuso.setglosa_tipo_uso(this.txtTipoUso.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_actualizacion("");
+
+                boolean resultado = tipoUsoCont.actualizarTipoUso(tiuso);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error actualizando Tipo de Uso.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            } else {
+                //Crear
+                tiuso.setglosa_tipo_uso(this.txtTipoUso.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_creacion("");
+
+                boolean resultado = tipoUsoCont.crearTipoUso(tiuso);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error creando Tipo de Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en el mantenedor de Tipo de Usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            tipoUsoCont = null;
+            tiuso = null;
+        }
+    }//GEN-LAST:event_btnCrearTipoUsoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -134,7 +197,7 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DlgCrearTipoUso dialog = new DlgCrearTipoUso(new javax.swing.JFrame(), true);
+                DlgCrearTipoUso dialog = new DlgCrearTipoUso(tipoUsoView, true, tiuso);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

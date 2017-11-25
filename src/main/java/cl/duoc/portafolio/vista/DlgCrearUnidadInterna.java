@@ -126,6 +126,7 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
     private void btnCrearTipoUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoUnidadInternaActionPerformed
         // TODO add your handling code here:
         UnidadInternaController uniCont = new UnidadInternaController();
+        
         try {
             //Acción actualizar o crear
             if (uni != null) {

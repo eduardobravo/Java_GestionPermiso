@@ -52,6 +52,7 @@ public class UnidadInternaController {
             boolean resultado = false;
             service = new ws_pkg.UNIDADINTERNATapi_Service();
             port = service.getUNIDADINTERNATapiPort();
+            
             String result = port.uiIns(UnidadI.getRut_actualizacion(), UnidadI.getGlosa_unidad_interna());
 
             listaUnidadInternas = mapper.readValue(result, new TypeReference<List<UnidadInterna>>() {});

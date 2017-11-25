@@ -55,6 +55,7 @@ public class TipoAprobacionController {
             port = service.getTIPOAPROBACIONTapiPort();
             
             String result = port.taIns(ta.getGlosa_tipo_aprobacion(),ta.getRut_creacion());
+            
             listaTipoAprobaciones = mapper.readValue(result, new TypeReference<List<TipoAprobacion>>() {
                 });
             if (listaTipoAprobaciones.get(0).getId_tipo_aprobacion() > 0) {

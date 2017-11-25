@@ -83,6 +83,7 @@ public class UnidadInternaView extends javax.swing.JInternalFrame {
         btnEditarTipoDeUnidadInterna = new javax.swing.JButton();
         btnCrearTipoDeUnidadInterna = new javax.swing.JButton();
 
+        setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tblUnidadInterna.setModel(new javax.swing.table.DefaultTableModel(

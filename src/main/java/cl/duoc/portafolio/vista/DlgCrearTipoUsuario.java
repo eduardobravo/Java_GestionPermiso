@@ -148,6 +148,7 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
                 }
             } else {
                 //Crear
+                tius = new TipoUsuario();
                 tius.setglosa_tipo_usuario(this.txtTipoNombreUsuario.getText().trim());
                 
                 //incorporar rut de navegación

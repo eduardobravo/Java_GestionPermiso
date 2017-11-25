@@ -20,7 +20,6 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
     private static UsuarioView usuarioView = null;
     private static Usuario usu = null;
 
-    //private static Usuario usuario = null;
     /**
      * Creates new form DirtyDialog
      */
@@ -270,6 +269,9 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
                     }
                 }
 
+                //incorporar rut de navegación
+                //usu.setRut_actualizacion("");
+                
                 boolean resultado = usrCont.actualizarUsuario(usu);
                 if (!resultado) {
                     JOptionPane.showMessageDialog(this, "Error actualizando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -309,6 +311,9 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
                         usu.setPassword(new String(this.psfClave.getPassword()).trim());
                     }
                 }
+                
+                //incorporar rut de navegación
+                //usu.setRut_creacion("");
 
                 boolean resultado = usrCont.crearUsuario(usu);
                 if (!resultado) {

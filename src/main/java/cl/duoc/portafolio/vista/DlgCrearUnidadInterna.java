@@ -5,18 +5,37 @@
  */
 package cl.duoc.portafolio.vista;
 
+import cl.duoc.portafolio.controller.UnidadInternaController;
+import cl.duoc.portafolio.entities.UnidadInterna;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author lun4t1k0
  */
 public class DlgCrearUnidadInterna extends javax.swing.JDialog {
-
+    private final static Logger logger = Logger.getLogger(DlgCrearUnidadInterna.class);
+    private static UnidadInternaView unidadInternaView = null;
+    private static UnidadInterna uni = null;
     /**
      * Creates new form DlgCrearUnidadInterna
      */
-    public DlgCrearUnidadInterna(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DlgCrearUnidadInterna(UnidadInternaView unidadInternaViewP, boolean modal, UnidadInterna unidadInt) {
+//        super(parent, modal);
+//        initComponents();
+        unidadInternaView = unidadInternaViewP;
+        uni = unidadInt;
+        this.setModal(modal);
         initComponents();
+        setLocationRelativeTo(this);
+        if (uni != null) {
+            this.cargarDatos(unidadInt);
+        }
+    }
+
+    private void cargarDatos(UnidadInterna unidadInt) {
+        this.txtTipoUnidadInterna.setText(unidadInt.getGlosa_unidad_interna());
     }
 
     /**
@@ -46,6 +65,11 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
         lblNombreTipoAprobacion.setText("Nombre Tipo Unidad Interna:");
 
         btnCrearTipoUnidadInterna.setText("Crear");
+        btnCrearTipoUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoUnidadInternaActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,8 +120,49 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCrearTipoUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoUnidadInternaActionPerformed
+        // TODO add your handling code here:
+        UnidadInternaController uniCont = new UnidadInternaController();
+        try {
+            //Acción actualizar o crear
+            if (uni != null) {
+                //Actualizar
+                uni.setGlosa_unidad_interna(this.txtTipoUnidadInterna.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_actualizacion("");
+
+                boolean resultado = uniCont.actualizarUnidadInterna(uni);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error actualizando Unidad Interna.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            } else {
+                //Crear
+                uni.setGlosa_unidad_interna(this.txtTipoUnidadInterna.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_creacion("");
+
+                boolean resultado = uniCont.crearUnidadInterna(uni);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error creando Unidad Interna.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en el mantenedor de Unidad Interna.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            uniCont = null;
+            uni = null;
+        }
+    }//GEN-LAST:event_btnCrearTipoUnidadInternaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,7 +194,7 @@ public class DlgCrearUnidadInterna extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DlgCrearUnidadInterna dialog = new DlgCrearUnidadInterna(new javax.swing.JFrame(), true);
+                DlgCrearUnidadInterna dialog = new DlgCrearUnidadInterna(unidadInternaView, true, uni);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

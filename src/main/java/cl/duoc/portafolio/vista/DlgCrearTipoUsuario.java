@@ -5,18 +5,37 @@
  */
 package cl.duoc.portafolio.vista;
 
+import cl.duoc.portafolio.controller.TipoUsuarioController;
+import cl.duoc.portafolio.entities.TipoUsuario;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author lun4t1k0
  */
 public class DlgCrearTipoUsuario extends javax.swing.JDialog {
 
+    private final static Logger logger = Logger.getLogger(DlgCrearTipoUsuario.class);
+    private static TipoUsuarioView tipoUsuarioView = null;
+    private static TipoUsuario tius = null;
+
     /**
      * Creates new form DlgCrearTipoUsuario
      */
-    public DlgCrearTipoUsuario(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DlgCrearTipoUsuario(TipoUsuarioView uipoUsuarioViewP, boolean modal, TipoUsuario tipoUsu) {
+        tipoUsuarioView = uipoUsuarioViewP;
+        tius = tipoUsu;
+        this.setModal(modal);
         initComponents();
+        setLocationRelativeTo(this);
+        if (tius != null) {
+            this.cargarDatos(tipoUsu);
+        }
+    }
+
+    private void cargarDatos(TipoUsuario tipoUsu) {
+        this.txtTipoNombreUsuario.setText(tipoUsu.getglosa_tipo_usuario());
     }
 
     /**
@@ -46,6 +65,11 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
         lblNombreTipoUsuario.setText("Nombre Tipo Usuario :");
 
         btnCrearTipoUsuario.setText("Crear");
+        btnCrearTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoUsuarioActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +125,49 @@ public class DlgCrearTipoUsuario extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-System.exit(0);        // TODO add your handling code here:
+        System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCrearTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoUsuarioActionPerformed
+        // TODO add your handling code here:
+        TipoUsuarioController tipoUsuCont = new TipoUsuarioController();
+        try {
+            //Acción actualizar o crear
+            if (tius != null) {
+                //Actualizar
+                tius.setglosa_tipo_usuario(this.txtTipoNombreUsuario.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_actualizacion("");
+
+                boolean resultado = tipoUsuCont.actualizarTipoUsuario(tius);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error actualizando Tipo de Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            } else {
+                //Crear
+                tius.setglosa_tipo_usuario(this.txtTipoNombreUsuario.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_creacion("");
+
+                boolean resultado = tipoUsuCont.crearTipoUsuario(tius);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error creando Tipo de Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en el mantenedor de Tipo de Usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            tipoUsuCont = null;
+            tius = null;
+        }
+    }//GEN-LAST:event_btnCrearTipoUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,7 +199,7 @@ System.exit(0);        // TODO add your handling code here:
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DlgCrearTipoUsuario dialog = new DlgCrearTipoUsuario(new javax.swing.JFrame(), true);
+                DlgCrearTipoUsuario dialog = new DlgCrearTipoUsuario(tipoUsuarioView, true, tius);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

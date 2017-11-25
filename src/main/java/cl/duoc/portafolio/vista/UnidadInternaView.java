@@ -10,12 +10,14 @@ import cl.duoc.portafolio.entities.UnidadInterna;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.apache.log4j.Logger;
 /**
  *
  * @author Edo
  */
 public class UnidadInternaView extends javax.swing.JInternalFrame {
 
+    private final static Logger logger = Logger.getLogger(UnidadInternaView.class);
     /**
      * Creates new form UnidadInternaView
      */
@@ -49,6 +51,18 @@ public class UnidadInternaView extends javax.swing.JInternalFrame {
         } finally {
             unidadInternaController = null;
         }
+    }
+    
+    /**
+     * método para encontrar el index, usando el nombre de la columna
+     */
+    private int getIndexColumnByName(javax.swing.JTable tabla, String nombre) {
+        for (int i = 0; i < tabla.getColumnCount(); i++) {
+            if (tabla.getColumnName(i).equals(nombre)) {
+                return i;
+            }
+        }
+        return -1;
     }
     
     /**
@@ -94,10 +108,25 @@ public class UnidadInternaView extends javax.swing.JInternalFrame {
         jLabel5.setText("2. Para editar un tipo de unidad interna debe seleccionar un tipo de usuario y pulsar el boton \"Editar\"");
 
         btnEliminarTipoDeUnidadInterna.setText("Eliminar");
+        btnEliminarTipoDeUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarTipoDeUnidadInternaActionPerformed(evt);
+            }
+        });
 
         btnEditarTipoDeUnidadInterna.setText("Editar");
+        btnEditarTipoDeUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarTipoDeUnidadInternaActionPerformed(evt);
+            }
+        });
 
         btnCrearTipoDeUnidadInterna.setText("Crear");
+        btnCrearTipoDeUnidadInterna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoDeUnidadInternaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,15 +166,76 @@ public class UnidadInternaView extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditarTipoDeUnidadInterna)
-                    .addComponent(btnEliminarTipoDeUnidadInterna)
-                    .addComponent(btnCrearTipoDeUnidadInterna, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrearTipoDeUnidadInterna, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEditarTipoDeUnidadInterna)
+                        .addComponent(btnEliminarTipoDeUnidadInterna)))
                 .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCrearTipoDeUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoDeUnidadInternaActionPerformed
+        // TODO add your handling code here:
+        try {
+            DlgCrearUnidadInterna dlg = new DlgCrearUnidadInterna(this, true, null);
+            dlg.setTitle("Agregar Unidad Interna");
+            dlg.setVisible(true);
+        } catch (Exception e) {
+            logger.error("Error grave creando Unidad Interna.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCrearTipoDeUnidadInternaActionPerformed
+
+    private void btnEditarTipoDeUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTipoDeUnidadInternaActionPerformed
+        // TODO add your handling code here:
+        UnidadInternaController unidadInternaCont = null;
+        try {
+            unidadInternaCont = new UnidadInternaController();
+            if (this.tblUnidadInterna.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Error: Debe seleccionar un registro de la tabla para Actualizar.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String ID = String.valueOf(this.tblUnidadInterna.getValueAt(this.tblUnidadInterna.getSelectedRow(), 0)).trim();
+                UnidadInterna uni = unidadInternaCont.obtenerUnidadInterna(ID);
+                DlgCrearUnidadInterna dlg = new DlgCrearUnidadInterna(this, true, uni);
+                dlg.setTitle("Modificar Unidad Interna");
+                dlg.setVisible(true);
+            }
+        } catch (Exception e) {
+            logger.error("Error grave actualizando unidad interna.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            unidadInternaCont = null;
+        }
+    }//GEN-LAST:event_btnEditarTipoDeUnidadInternaActionPerformed
+
+    private void btnEliminarTipoDeUnidadInternaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoDeUnidadInternaActionPerformed
+        // TODO add your handling code here:
+        UnidadInternaController unidadInternaCont = null;
+        try {
+            unidadInternaCont = new UnidadInternaController();
+            if (this.tblUnidadInterna.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Error: Debe seleccionar un registro de la tabla para Eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String ID = String.valueOf(this.tblUnidadInterna.getValueAt(this.tblUnidadInterna.getSelectedRow(), 0)).trim();
+                //UnidadInterna uni = unidadInternaCont.obtenerUnidadInterna(ID);
+                
+                boolean resultado = unidadInternaCont.eliminarUnidadInterna(ID);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error Eliminando Unidad Interna.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.cargaTabla();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en mantenedor unidad interna.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            unidadInternaCont = null;
+        }
+    }//GEN-LAST:event_btnEliminarTipoDeUnidadInternaActionPerformed
 
     /**
      * @param args the command line arguments

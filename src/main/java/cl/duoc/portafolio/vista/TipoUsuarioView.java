@@ -10,12 +10,15 @@ import cl.duoc.portafolio.entities.TipoUsuario;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.apache.log4j.Logger;
 
 /**
  *
  * @author Edo
  */
 public class TipoUsuarioView extends javax.swing.JInternalFrame {
+
+    private final static Logger logger = Logger.getLogger(TipoUsuarioView.class);
 
     /**
      * Creates new form TipoUsuarioView
@@ -51,6 +54,19 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
             tipoUsuarioController = null;
         }
     }
+    
+    /**
+     * método para encontrar el index, usando el nombre de la columna
+     */
+    private int getIndexColumnByName(javax.swing.JTable tabla, String nombre) {
+        for (int i = 0; i < tabla.getColumnCount(); i++) {
+            if (tabla.getColumnName(i).equals(nombre)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
     public TipoUsuarioView() {
         initComponents();
         cargaTabla();
@@ -99,10 +115,25 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
         jLabel5.setText("2. Para editar un tipo de usuario debe seleccionar un tipo de usuario y pulsar el boton \"Editar\"");
 
         btnEliminarTipoDeUsuario.setText("Eliminar");
+        btnEliminarTipoDeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarTipoDeUsuarioActionPerformed(evt);
+            }
+        });
 
         btnEditarTipoDeUsuario.setText("Editar");
+        btnEditarTipoDeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarTipoDeUsuarioActionPerformed(evt);
+            }
+        });
 
         btnCrearTipoDeUsuario.setText("Crear");
+        btnCrearTipoDeUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoDeUsuarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -141,15 +172,76 @@ public class TipoUsuarioView extends javax.swing.JInternalFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditarTipoDeUsuario)
-                    .addComponent(btnEliminarTipoDeUsuario)
-                    .addComponent(btnCrearTipoDeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCrearTipoDeUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEditarTipoDeUsuario)
+                        .addComponent(btnEliminarTipoDeUsuario)))
                 .addGap(42, 42, 42))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCrearTipoDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoDeUsuarioActionPerformed
+        // TODO add your handling code here:
+        try {
+            DlgCrearTipoUsuario dlg = new DlgCrearTipoUsuario(this, true, null);
+            dlg.setTitle("Agregar Tipo de Usuario");
+            dlg.setVisible(true);
+        } catch (Exception e) {
+            logger.error("Error grave creando Tipo de Usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnCrearTipoDeUsuarioActionPerformed
+
+    private void btnEditarTipoDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarTipoDeUsuarioActionPerformed
+        // TODO add your handling code here:
+        TipoUsuarioController tipoUsuarioCont = null;
+        try {
+            tipoUsuarioCont = new TipoUsuarioController();
+            if (this.tblTipoUsuario.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Error: Debe seleccionar un registro de la tabla para Actualizar.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String ID = String.valueOf(this.tblTipoUsuario.getValueAt(this.tblTipoUsuario.getSelectedRow(), 0)).trim();
+                TipoUsuario tisu = tipoUsuarioCont.obtenerTipoUsuario(ID);
+                DlgCrearTipoUsuario dlg = new DlgCrearTipoUsuario(this, true, tisu);
+                dlg.setTitle("Modificar Unidad Interna");
+                dlg.setVisible(true);
+            }
+        } catch (Exception e) {
+            logger.error("Error grave actualizando tipo de usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            tipoUsuarioCont = null;
+        }
+    }//GEN-LAST:event_btnEditarTipoDeUsuarioActionPerformed
+
+    private void btnEliminarTipoDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarTipoDeUsuarioActionPerformed
+        // TODO add your handling code here:
+        TipoUsuarioController tipoUsuarioCont = null;
+        try {
+            tipoUsuarioCont = new TipoUsuarioController();
+            if (this.tblTipoUsuario.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Error: Debe seleccionar un registro de la tabla para Eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String ID = String.valueOf(this.tblTipoUsuario.getValueAt(this.tblTipoUsuario.getSelectedRow(), 0)).trim();
+                //TipoUsuario tisu = tipoUsuarioCont.obtenerTipoUsuario(ID);
+                
+                boolean resultado = tipoUsuarioCont.eliminarTipoUsuario(ID);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error eliminando tipo de usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.cargaTabla();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en mantenedor tipo de usuario.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            tipoUsuarioCont = null;
+        }
+    }//GEN-LAST:event_btnEliminarTipoDeUsuarioActionPerformed
 
     /**
      * @param args the command line arguments

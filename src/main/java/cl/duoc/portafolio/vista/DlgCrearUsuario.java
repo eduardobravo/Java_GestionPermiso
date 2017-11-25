@@ -7,6 +7,7 @@ package cl.duoc.portafolio.vista;
 
 import cl.duoc.portafolio.entities.Usuario;
 import cl.duoc.portafolio.controller.UsuarioController;
+import cl.duoc.portafolio.controller.ValidacionesController;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 
@@ -112,6 +113,12 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         lblClaveRepite.setText("Reingrese Clave");
 
         lblRut.setText("Rut");
+
+        txtRut.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtRutFocusLost(evt);
+            }
+        });
 
         lblTitulo.setFont(new java.awt.Font("Lucida Grande", 1, 20)); // NOI18N
         lblTitulo.setText("Crear Usuario");
@@ -335,6 +342,18 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtRutFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtRutFocusLost
+        // TODO add your handling code here:
+        ValidacionesController valid = new ValidacionesController();
+       boolean valido = valid.validarRut(txtRut.getText().trim());
+       
+        if (!valido) {
+            JOptionPane.showMessageDialog(this, "El Rut no es valido", "Error",JOptionPane.ERROR_MESSAGE);
+        } else {
+            
+        }
+    }//GEN-LAST:event_txtRutFocusLost
 
     /**
      * @param args the command line arguments

@@ -256,6 +256,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtRut">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtRutFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>

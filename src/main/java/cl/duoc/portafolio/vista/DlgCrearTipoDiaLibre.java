@@ -5,18 +5,36 @@
  */
 package cl.duoc.portafolio.vista;
 
+import cl.duoc.portafolio.controller.TipoDiaLibreController;
+import cl.duoc.portafolio.entities.TipoDiaLibre;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
+
 /**
  *
  * @author lun4t1k0
  */
 public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
-
+    
+    private final static Logger logger = Logger.getLogger(DlgCrearTipoDiaLibre.class);
+    private static TipoDiaLibreView tipoDiaLibreView = null;
+    private static TipoDiaLibre tipDiaLibre = null;
     /**
      * Creates new form DlgCrearTipoDiaLibre
      */
-    public DlgCrearTipoDiaLibre(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DlgCrearTipoDiaLibre(TipoDiaLibreView tipoDiaLibreViewP, boolean modal, TipoDiaLibre tipoDiaLibre) {
+        tipoDiaLibreView = tipoDiaLibreViewP;
+        tipDiaLibre = tipoDiaLibre;
+        this.setModal(modal);
         initComponents();
+        setLocationRelativeTo(this);
+        if (tipDiaLibre != null) {
+            this.cargarDatos(tipDiaLibre);
+        }
+    }
+    
+    private void cargarDatos(TipoDiaLibre tipoDiaLibre) {
+        this.txtTipoNombreDiaLibre.setText(tipoDiaLibre.getGlosa_tipo_dia_libre());
     }
 
     /**
@@ -46,6 +64,11 @@ public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
         lblNombreTipoAprobacion.setText("Nombre Tipo Dia Libre:");
 
         btnCrearTipoDiaLibre.setText("Crear");
+        btnCrearTipoDiaLibre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoDiaLibreActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +124,49 @@ public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        this.dispose();       // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCrearTipoDiaLibreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoDiaLibreActionPerformed
+        
+        TipoDiaLibreController tipoDiaLibreCont = new TipoDiaLibreController();
+        try {
+            //Acción actualizar o crear
+            if (tipDiaLibre != null) {
+                //Actualizar
+                tipDiaLibre.setGlosa_tipo_dia_libre(this.txtTipoNombreDiaLibre.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_actualizacion("");
+
+                boolean resultado = tipoDiaLibreCont.actualizarTipoDiaLibre(tipDiaLibre);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error actualizando Tipo de dia Libre.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            } else {
+                //Crear
+                tipDiaLibre.setGlosa_tipo_dia_libre(this.txtTipoNombreDiaLibre.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_creacion("");
+
+                boolean resultado = tipoDiaLibreCont.crearTipoDiaLibre(tipDiaLibre);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error creando Tipo de dia libre.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en el mantenedor de Tipo de dia libre.", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            tipoDiaLibreCont = null;
+            tipDiaLibre = null;
+        }
+    }//GEN-LAST:event_btnCrearTipoDiaLibreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,7 +198,7 @@ public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DlgCrearTipoDiaLibre dialog = new DlgCrearTipoDiaLibre(new javax.swing.JFrame(), true);
+                DlgCrearTipoDiaLibre dialog = new DlgCrearTipoDiaLibre(tipoDiaLibreView, true, tipDiaLibre);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

@@ -21,8 +21,8 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
     private static TipoUso tiuso = null;
     
     
-   public DlgCrearTipoUso(TipoUsoView uipoUsoViewP, boolean modal, TipoUso tipoUso) {
-        tipoUsoView = uipoUsoViewP;
+   public DlgCrearTipoUso(TipoUsoView tipoUsoViewP, boolean modal, TipoUso tipoUso) {
+        tipoUsoView = tipoUsoViewP;
         tiuso = tipoUso;
         this.setModal(modal);
         initComponents();
@@ -153,13 +153,13 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
 
                 boolean resultado = tipoUsoCont.crearTipoUso(tiuso);
                 if (!resultado) {
-                    JOptionPane.showMessageDialog(this, "Error creando Tipo de Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Error creando Tipo de Uso.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     this.dispose();
                 }
             }
         } catch (Exception e) {
-            logger.error("Error grave en el mantenedor de Tipo de Usuario.", e);
+            logger.error("Error grave en el mantenedor de Tipo de Uso.", e);
             JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         } finally {
             tipoUsoCont = null;

@@ -4,21 +4,36 @@
  * and open the template in the editor.
  */
 package cl.duoc.portafolio.vista;
-
+import cl.duoc.portafolio.controller.TipoAprobacionController;
+import cl.duoc.portafolio.entities.TipoAprobacion;
+import javax.swing.JOptionPane;
+import org.apache.log4j.Logger;
 /**
  *
  * @author lun4t1k0
  */
 public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
-
+    
+    private final static Logger logger = Logger.getLogger(DlgCrearTipoAprobacion.class);
+    private static TipoAprobacionView tipoAprobacionView = null;
+    private static TipoAprobacion tipAprobacion = null;
     /**
      * Creates new form DlgCrearTipoAprobacion
      */
-    public DlgCrearTipoAprobacion(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public DlgCrearTipoAprobacion(TipoAprobacionView tipoAprobacionViewP, boolean modal, TipoAprobacion tipoAprobacion) {
+        tipoAprobacionView = tipoAprobacionViewP;
+        tipAprobacion = tipoAprobacion;
+        this.setModal(modal);
         initComponents();
+        setLocationRelativeTo(this);
+        if (tipAprobacion != null) {
+            this.cargarDatos(tipAprobacion);
+        }
     }
 
+    private void cargarDatos(TipoAprobacion tipoAprobacion) {
+        this.txtTipoNombreAprobacion.setText(tipoAprobacion.getGlosa_tipo_aprobacion());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +61,11 @@ public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
         lblNombreTipoAprobacion.setText("Nombre Tipo Aprobacion:");
 
         btnCrearTipoAprobacion.setText("Crear");
+        btnCrearTipoAprobacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearTipoAprobacionActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +121,49 @@ public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCrearTipoAprobacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoAprobacionActionPerformed
+        // TODO add your handling code here:
+        TipoAprobacionController tipoAprobacionCont = new TipoAprobacionController();
+        try {
+            //Acción actualizar o crear
+            if (tipAprobacion != null) {
+                //Actualizar
+                tipAprobacion.setGlosa_tipo_aprobacion(this.txtTipoNombreAprobacion.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_actualizacion("");
+
+                boolean resultado = tipoAprobacionCont.actualizarTipoAprobacion(tipAprobacion);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error actualizando Tipo de Aprobación.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            } else {
+                //Crear
+                tipAprobacion.setGlosa_tipo_aprobacion(this.txtTipoNombreAprobacion.getText().trim());
+                
+                //incorporar rut de navegación
+                //uni.setRut_creacion("");
+
+                boolean resultado = tipoAprobacionCont.crearTipoAprobacion(tipAprobacion);
+                if (!resultado) {
+                    JOptionPane.showMessageDialog(this, "Error creando Tipo de Aprobación.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            logger.error("Error grave en el mantenedor de Tipo de Aprobación", e);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            tipoAprobacionCont = null;
+            tipAprobacion = null;
+        }
+    }//GEN-LAST:event_btnCrearTipoAprobacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,7 +195,7 @@ public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DlgCrearTipoAprobacion dialog = new DlgCrearTipoAprobacion(new javax.swing.JFrame(), true);
+                DlgCrearTipoAprobacion dialog = new DlgCrearTipoAprobacion(tipoAprobacionView, true, tipAprobacion);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

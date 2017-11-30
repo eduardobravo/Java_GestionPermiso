@@ -60,7 +60,7 @@ public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
 
         lblNombreTipoAprobacion.setText("Nombre Tipo Aprobacion:");
 
-        btnCrearTipoAprobacion.setText("Crear");
+        btnCrearTipoAprobacion.setText("Aceptar");
         btnCrearTipoAprobacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearTipoAprobacionActionPerformed(evt);
@@ -85,7 +85,7 @@ public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblNombreTipoAprobacion)
@@ -144,6 +144,7 @@ public class DlgCrearTipoAprobacion extends javax.swing.JDialog {
                 }
             } else {
                 //Crear
+                tipAprobacion = new TipoAprobacion();
                 tipAprobacion.setGlosa_tipo_aprobacion(this.txtTipoNombreAprobacion.getText().trim());
                 
                 //incorporar rut de navegación

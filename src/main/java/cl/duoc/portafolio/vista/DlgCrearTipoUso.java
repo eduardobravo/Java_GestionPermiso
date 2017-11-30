@@ -62,7 +62,7 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
 
         lblNombreTipoAprobacion.setText("Nombre Tipo Uso:");
 
-        btnCrearTipoUso.setText("Crear");
+        btnCrearTipoUso.setText("Aceptar");
         btnCrearTipoUso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearTipoUsoActionPerformed(evt);
@@ -123,7 +123,7 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCrearTipoUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoUsoActionPerformed
@@ -146,6 +146,7 @@ public class DlgCrearTipoUso extends javax.swing.JDialog {
                 }
             } else {
                 //Crear
+                tiuso = new TipoUso();
                 tiuso.setglosa_tipo_uso(this.txtTipoUso.getText().trim());
                 
                 //incorporar rut de navegación

@@ -63,7 +63,7 @@ public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
 
         lblNombreTipoAprobacion.setText("Nombre Tipo Dia Libre:");
 
-        btnCrearTipoDiaLibre.setText("Crear");
+        btnCrearTipoDiaLibre.setText("Aceptar");
         btnCrearTipoDiaLibre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCrearTipoDiaLibreActionPerformed(evt);
@@ -88,7 +88,7 @@ public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(60, 60, 60))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblNombreTipoAprobacion)
@@ -147,6 +147,7 @@ public class DlgCrearTipoDiaLibre extends javax.swing.JDialog {
                 }
             } else {
                 //Crear
+                tipDiaLibre = new TipoDiaLibre();
                 tipDiaLibre.setGlosa_tipo_dia_libre(this.txtTipoNombreDiaLibre.getText().trim());
                 
                 //incorporar rut de navegación

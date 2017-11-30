@@ -96,6 +96,12 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
 
         lblNombre.setText("Nombre");
 
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
+
         lblApellidoP.setText("Apellido Paterno");
 
         lblApellidoM.setText("Apellido Materno");
@@ -183,8 +189,8 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
                             .addComponent(ftfFechaContrato))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(353, 353, 353))))
+                        .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,11 +359,13 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         ValidacionesController valid = new ValidacionesController();
         try {
             boolean valido = valid.validarRut(txtRut.getText().trim());
+            
        
         if (!valido) {
             JOptionPane.showMessageDialog(this, "El Rut no es valido", "Error",JOptionPane.ERROR_MESSAGE);
         } else {
-            
+            String formato = valid.FormatearRUT(txtRut.getText());
+            txtRut.setText(formato);
         }
         } catch (Exception e) {
         }
@@ -373,7 +381,7 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
          try {
              String resultado = valid.ValidarFecha(ftfFechaIngreso.getText().trim(), ftfFechaContrato.getText().trim());
              if (!resultado.isEmpty()) {
-               JOptionPane.showConfirmDialog(this, resultado, "Error",JOptionPane.ERROR_MESSAGE);
+               JOptionPane.showMessageDialog(this, resultado, "Error",JOptionPane.ERROR_MESSAGE);
              } 
         } catch (Exception e) {
         }finally{
@@ -382,6 +390,23 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
  
         
     }//GEN-LAST:event_ftfFechaContratoFocusLost
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        // TODO add your handling code here:
+         ValidacionesController valid = new ValidacionesController();
+        try {
+            String resultado = null;
+            resultado = valid.ValidarLargoCampo(50, txtNombre.getText().length());
+            if (!resultado.isEmpty()) {
+                JOptionPane.showMessageDialog(this, resultado, "Error", JOptionPane.ERROR_MESSAGE );
+                
+            } else {
+            }
+        } catch (Exception e) {
+        }finally{
+           valid = null;
+       }
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     /**
      * @param args the command line arguments

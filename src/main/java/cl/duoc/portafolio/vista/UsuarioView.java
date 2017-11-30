@@ -39,14 +39,14 @@ public class UsuarioView extends javax.swing.JInternalFrame {
             usuCont = new UsuarioController();
             //String inactivos = chbInactivos.isSelected() ? "-1" : "1";
             List<cl.duoc.portafolio.entities.Usuario> listaUsuarios = usuCont.getUsuarios("-1");//(inactivos);
-            String col[] = {"Rut", "Nombre", "Apellido P", "Apellido M", "Clave", "Fecha Contrato", "Fecha Ingreso", "Activo"};
+            String col[] = {"Rut", "Nombre", "Apellido P", "Apellido M", "Fecha Contrato", "Fecha Ingreso", "Activo"};
 
             DefaultTableModel tableModel = (DefaultTableModel) this.tblUsuarios.getModel();
             tableModel.setRowCount(0);//al setear en cero, elimina de verdad todas las filas del objeto JTable (sean o no las que vienen por defecto)
             tableModel.setColumnIdentifiers(col);
 
             for (cl.duoc.portafolio.entities.Usuario usu : listaUsuarios) {
-                Object[] row = new Object[]{usu.getRut(), usu.getNombre(), usu.getApellidop(), usu.getApellidom(), usu.getPassword(), usu.getFecha_contrato(), usu.getFecha_ingreso(), usu.getFlag_activo() == 1 ? "Si" : "No"};
+                Object[] row = new Object[]{usu.getRut(), usu.getNombre(), usu.getApellidop(), usu.getApellidom(), usu.getFecha_contrato(), usu.getFecha_ingreso(), usu.getFlag_activo() == 1 ? "Si" : "No"};
                 tableModel.addRow(row);
             }
         } catch (Exception e) {

@@ -187,6 +187,24 @@
                         <id>wsimport-generate-TIPO_DIA_LIBRE_tapi</id>
                         <phase>generate-sources</phase>
                     </execution>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>localhost_8080/ws_gestionpermiso/REL_USUARIO_TIPO_USU_tapi.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName></packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/WS_GestionPermiso/REL_USUARIO_TIPO_USU_tapi?WSDL</wsdlLocation>
+                            <staleFile>${project.build.directory}/jaxws/stale/REL_USUARIO_TIPO_USU_tapi.stale</staleFile>
+                        </configuration>
+                        <id>wsimport-generate-REL_USUARIO_TIPO_USU_tapi</id>
+                        <phase>generate-sources</phase>
+                    </execution>
                 </executions>
                 <dependencies>
                     <dependency>

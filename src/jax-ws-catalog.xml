@@ -23,4 +23,6 @@
     <system systemId="http://localhost:8080/WS_GestionPermiso/TIPO_APROBACION_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/TIPO_APROBACION_tapi.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/TIPO_DIA_LIBRE_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/TIPO_DIA_LIBRE_tapi.wsdl"/>
     <system systemId="http://localhost:8080/WS_GestionPermiso/TIPO_DIA_LIBRE_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/TIPO_DIA_LIBRE_tapi.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/REL_USUARIO_TIPO_USU_tapi?WSDL" uri="wsdl/localhost_8080/ws_gestionpermiso/REL_USUARIO_TIPO_USU_tapi.wsdl"/>
+    <system systemId="http://localhost:8080/WS_GestionPermiso/REL_USUARIO_TIPO_USU_tapi?xsd=1" uri="wsdl/localhost_8080/ws_gestionpermiso/REL_USUARIO_TIPO_USU_tapi.xsd_1.xsd"/>
 </catalog>

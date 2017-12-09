@@ -15,6 +15,5 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_APROBACION_5f_tapi>http://localhost:8080/WS_GestionPermiso/TIPO_APROBACION_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_APROBACION_5f_tapi>
         <org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_DIA_5f_LIBRE_5f_tapi>http://localhost:8080/WS_GestionPermiso/TIPO_DIA_LIBRE_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_TIPO_5f_DIA_5f_LIBRE_5f_tapi>
-        <org-netbeans-modules-maven-jaxws._5f_C_5f_REL_5f_USUARIO_5f_TIPO_5f_USU_5f_tapi>http://localhost:8080/WS_GestionPermiso/REL_USUARIO_TIPO_USU_tapi?WSDL</org-netbeans-modules-maven-jaxws._5f_C_5f_REL_5f_USUARIO_5f_TIPO_5f_USU_5f_tapi>
     </properties>
 </project-shared-configuration>

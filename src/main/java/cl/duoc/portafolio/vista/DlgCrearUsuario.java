@@ -259,6 +259,34 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        ValidacionesController valid = new ValidacionesController();
+        try {
+            boolean valido = valid.validarRut(txtRut.getText().trim());
+
+            if (!valido) {
+                JOptionPane.showMessageDialog(this, "El Rut no es valido", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            } else {
+                String formato = valid.FormatearRUT(txtRut.getText());
+                txtRut.setText(formato);
+            }
+
+            String resultado = valid.ValidarFecha(ftfFechaIngreso.getText().trim(), ftfFechaContrato.getText().trim());
+            if (!resultado.isEmpty()) {
+                JOptionPane.showMessageDialog(this, resultado, "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String resultadoLargo = null;
+            resultadoLargo = valid.ValidarLargoCampo(50, txtNombre.getText().length());
+            if (!resultadoLargo.isEmpty()) {
+                JOptionPane.showMessageDialog(this, resultadoLargo, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+        } finally {
+            valid = null;
+        }
+
         UsuarioController usrCont = new UsuarioController();
         try {
             //Acción actualizar o crear
@@ -289,7 +317,6 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
 
                 //incorporar rut de navegación
                 //usu.setRut_actualizacion("");
-                
                 boolean resultado = usrCont.actualizarUsuario(usu);
                 if (!resultado) {
                     JOptionPane.showMessageDialog(this, "Error actualizando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -329,10 +356,9 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
                         usu.setPassword(new String(this.psfClave.getPassword()).trim());
                     }
                 }
-                
+
                 //incorporar rut de navegación
                 //usu.setRut_creacion("");
-
                 boolean resultado = usrCont.crearUsuario(usu);
                 if (!resultado) {
                     JOptionPane.showMessageDialog(this, "Error creando Usuario.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -359,53 +385,48 @@ public class DlgCrearUsuario extends javax.swing.JDialog {
         ValidacionesController valid = new ValidacionesController();
         try {
             boolean valido = valid.validarRut(txtRut.getText().trim());
-            
-       
-        if (!valido) {
-            JOptionPane.showMessageDialog(this, "El Rut no es valido", "Error",JOptionPane.ERROR_MESSAGE);
-        } else {
-            String formato = valid.FormatearRUT(txtRut.getText());
-            txtRut.setText(formato);
-        }
+
+            if (!valido) {
+                JOptionPane.showMessageDialog(this, "El Rut no es valido", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String formato = valid.FormatearRUT(txtRut.getText());
+                txtRut.setText(formato);
+            }
         } catch (Exception e) {
-        }
-        finally{
+        } finally {
             valid = null;
         }
-       
     }//GEN-LAST:event_txtRutFocusLost
 
     private void ftfFechaContratoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ftfFechaContratoFocusLost
         // TODO add your handling code here:
-         ValidacionesController valid = new ValidacionesController();
-         try {
-             String resultado = valid.ValidarFecha(ftfFechaIngreso.getText().trim(), ftfFechaContrato.getText().trim());
-             if (!resultado.isEmpty()) {
-               JOptionPane.showMessageDialog(this, resultado, "Error",JOptionPane.ERROR_MESSAGE);
-             } 
+        ValidacionesController valid = new ValidacionesController();
+        try {
+            String resultado = valid.ValidarFecha(ftfFechaIngreso.getText().trim(), ftfFechaContrato.getText().trim());
+            if (!resultado.isEmpty()) {
+                JOptionPane.showMessageDialog(this, resultado, "Error", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (Exception e) {
-        }finally{
-             valid = null;
-         }
- 
-        
+        } finally {
+            valid = null;
+        }
+
+
     }//GEN-LAST:event_ftfFechaContratoFocusLost
 
     private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
         // TODO add your handling code here:
-         ValidacionesController valid = new ValidacionesController();
+        ValidacionesController valid = new ValidacionesController();
         try {
             String resultado = null;
             resultado = valid.ValidarLargoCampo(50, txtNombre.getText().length());
             if (!resultado.isEmpty()) {
-                JOptionPane.showMessageDialog(this, resultado, "Error", JOptionPane.ERROR_MESSAGE );
-                
-            } else {
+                JOptionPane.showMessageDialog(this, resultado, "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception e) {
-        }finally{
-           valid = null;
-       }
+        } finally {
+            valid = null;
+        }
     }//GEN-LAST:event_txtNombreKeyReleased
 
     /**

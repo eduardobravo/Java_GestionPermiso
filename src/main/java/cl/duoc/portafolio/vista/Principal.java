@@ -26,6 +26,39 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    
+    public void AsignarMenu(String rol){
+        if (rol.equals("superadmin")) {
+            mnFeriadoManual.setVisible(false);
+            mnMenu.setVisible(false);
+        }
+        if (rol.equals("admin")) {
+            mnFeriadoManual.setVisible(false);
+            mnMenu.setVisible(false);
+        }
+        if (rol.equals("17286928-9")|| rol.equals("14188440-9") || rol.toLowerCase().equals("15156304-k")) {
+            //mnUsuario.setVisible(false);
+            //mnUnidadInterna.setVisible(false);
+            //mnCalendarioHabil.setVisible(false);
+            mnFeriadoManual.setVisible(false);
+            mnMenu.setVisible(false);
+            //mnTipoUso.setVisible(false);
+            //mnTipoAprobacion.setVisible(false);
+            //mnTipoDiaLibre.setVisible(false);
+            //mnTipoUsuario.setVisible(false);
+        }
+        if (rol.equals("15822776-2") || rol.equals("17023713-7")) {
+            mnUsuario.setVisible(false);
+            //mnUnidadInterna.setVisible(false);
+            mnCalendarioHabil.setVisible(false);
+            mnFeriadoManual.setVisible(false);
+            mnMenu.setVisible(false);
+            //mnTipoUso.setVisible(false);
+            //mnTipoAprobacion.setVisible(false);
+            //mnTipoDiaLibre.setVisible(false);
+            mnTipoUsuario.setVisible(false);
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
